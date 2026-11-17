@@ -1,0 +1,2057 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0a1421" />
+    <meta
+      name="description"
+      content="ゴールするのは、あなたじゃない。光を読み、小さな旅人の影をゴールへ届ける、15の光と影のパズル。スマホ・PCで無料プレイ。"
+    />
+    <meta property="og:title" content="影だけ先にゴール" />
+    <meta
+      property="og:description"
+      content="ゴールするのは、あなたじゃない。15の光と影のパズル。"
+    />
+    <title>影だけ先にゴール — 光と影のパズル</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2218%22%20fill%3D%22%230a1421%22%2F%3E%3Cpath%20d%3D%22M25%2028%2053%2048%2040%2055%2017%2039%22%20fill%3D%22%237778c8%22%2F%3E%3Cpath%20d%3D%22M16%2034V23a12%2012%200%200%201%2024%200v11l-6-3-6%203-6-3Z%22%20fill%3D%22%23f7f4dc%22%2F%3E%3Ccircle%20cx%3D%2224%22%20cy%3D%2223%22%20r%3D%222%22%20fill%3D%22%230a1421%22%2F%3E%3Ccircle%20cx%3D%2233%22%20cy%3D%2223%22%20r%3D%222%22%20fill%3D%22%230a1421%22%2F%3E%3Ccircle%20cx%3D%2249%22%20cy%3D%2213%22%20r%3D%226%22%20fill%3D%22%23ffe3a0%22%2F%3E%3C%2Fsvg%3E%0A" />
+    <style>
+:root {
+  font-family:
+    "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Noto Sans CJK JP",
+    Meiryo, sans-serif;
+  color: #e7eee8;
+  background: #0a1421;
+  font-synthesis: none;
+  font-weight: 400;
+  --green: #bcdfb8;
+  --muted: #8c9caa;
+  --border: #b1c7c21f;
+  --cream: #eeeadd;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 85% 30%, #162a302f, transparent 55%), #0a1421;
+  min-height: 100dvh;
+}
+button,
+input,
+textarea {
+  font: inherit;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: inherit;
+  background: none;
+  min-height: 46px;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  transition:
+    background 0.18s,
+    transform 0.18s,
+    border-color 0.18s;
+}
+button:hover {
+  background: #ffffff0a;
+}
+button:active {
+  transform: translateY(1px);
+}
+button:disabled {
+  cursor: default;
+  opacity: 0.34;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 5px;
+}
+svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.shell {
+  max-width: 1272px;
+  margin: auto;
+  padding: 0 48px;
+}
+.site-header {
+  height: 112px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-decoration: none;
+  color: var(--cream);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.brand small {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 0.24em;
+  font-weight: 400;
+  margin-top: 6px;
+  color: #99a89f;
+}
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e6d3a45e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e9d4a2;
+}
+.brand-mark svg {
+  width: 22px;
+  height: 22px;
+}
+.site-header nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.quiet {
+  color: #acbabd;
+  font-weight: 400;
+}
+.icon-button {
+  font-size: 0;
+  padding: 12px;
+  width: 46px;
+  gap: 0;
+}
+.icon-button span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+.hero {
+  display: grid;
+  grid-template-columns: 0.87fr 1.13fr;
+  gap: 42px;
+  align-items: center;
+  padding: 60px 0 46px;
+}
+.eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.19em;
+  color: #acbfac;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.eyebrow > span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c7dca1;
+}
+.tagline {
+  font-family: Georgia, "Noto Serif CJK JP", serif;
+  font-size: 20px;
+  line-height: 1.8;
+  color: #c6cabc;
+  letter-spacing: 0.12em;
+  margin: 28px 0 16px;
+}
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+.hero h1 {
+  font-family: Georgia, "Noto Serif CJK JP", serif;
+  font-size: clamp(42px, 4.6vw, 63px);
+  line-height: 1.45;
+  font-weight: 500;
+  letter-spacing: 0.055em;
+  margin: 0 0 22px;
+  color: #f0eddf;
+}
+.hero h1 span {
+  color: #b7d6b4;
+}
+.hero h1 i {
+  font-style: normal;
+  color: #a4bda1;
+}
+.intro {
+  font-size: 13px;
+  line-height: 2.15;
+  color: #9cacb4;
+  letter-spacing: 0.04em;
+  margin-bottom: 29px;
+}
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.primary {
+  background: var(--green);
+  color: #1c342b;
+  border: 1px solid var(--green);
+  min-height: 52px;
+  padding: 14px 23px;
+  box-shadow: 0 4px 28px #bddeb70a;
+}
+.primary:hover {
+  background: #cce9c6;
+  border-color: #cce9c6;
+}
+.hero-actions .primary {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  min-width: 258px;
+}
+.secondary {
+  border: 1px solid #8daca333;
+  color: #c2ceca;
+  background: #15222b66;
+}
+.secondary:hover {
+  background: #223832;
+}
+.hero-actions .secondary {
+  border: 0;
+  padding-left: 4px;
+  font-size: 12px;
+  color: #a9b9b8;
+  min-height: 40px;
+}
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 9px;
+  color: #849694;
+  margin-top: 25px;
+  letter-spacing: 0.03em;
+}
+.hero-meta i {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #72877f;
+}
+.hero-art {
+  min-width: 0;
+  border: 1px solid #879d952b;
+  border-radius: 12px;
+  background: #0d1a26;
+  box-shadow: 0 30px 100px #00000033;
+  overflow: hidden;
+  position: relative;
+}
+.art-caption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #899f9a;
+  font-size: 8px;
+  letter-spacing: 0.17em;
+  padding: 20px 22px 0;
+}
+.art-caption > span:last-child {
+  margin-left: auto;
+}
+.live-dot {
+  width: 4px;
+  height: 4px;
+  background: #b5d4a6;
+  border-radius: 50%;
+}
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 640/600;
+}
+.art-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 23px 22px;
+  gap: 10px;
+}
+.legend {
+  display: flex;
+  gap: 17px;
+  font-size: 10px;
+  color: #9cacb3;
+  align-items: center;
+}
+.legend > span {
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  white-space: nowrap;
+}
+.legend i {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+}
+.light-dot {
+  background: #efd198;
+  border-radius: 50%;
+  box-shadow: 0 0 9px #ead1a64a;
+}
+.traveler-dot {
+  background: #efead5;
+  border-radius: 5px 5px 2px 2px;
+}
+.shadow-dot {
+  border: 1px solid #b5a7ec;
+  border-radius: 50%;
+}
+.goal-dot {
+  border: 1px solid #79dbb4;
+  transform: rotate(45deg);
+}
+.art-note {
+  font-size: 8px;
+  letter-spacing: 0.07em;
+  color: #708b87;
+}
+.home-foot {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 27px 0;
+}
+.chapter-index {
+  font-size: 9px;
+  letter-spacing: 0.19em;
+  color: #8da297;
+  margin-right: 15px;
+}
+.mini-step {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.mini-step b {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: #82988d;
+}
+.mini-step > span {
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+.mini-step small {
+  display: block;
+  font-size: 9px;
+  color: #80938f;
+}
+.flow-line {
+  color: #5c716c;
+}
+.footer-note {
+  margin-left: auto;
+  font-family: Georgia, "Noto Serif CJK JP", serif;
+  font-size: 11px;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  color: #8e9d95;
+}
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 26px 0;
+  font-size: 8px;
+  letter-spacing: 0.11em;
+  color: #657b7c;
+}
+.selection {
+  padding: 46px 0;
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 18px 0;
+}
+.section-title h1 {
+  font-family: Georgia, "Noto Serif CJK JP", serif;
+  font-size: 31px;
+  font-weight: 400;
+  margin: 0;
+}
+.section-title > span {
+  font-size: 11px;
+  color: #a6c59b;
+  letter-spacing: 0.1em;
+}
+.muted {
+  color: #9dadb3;
+  font-size: 13px;
+  line-height: 1.9;
+}
+.chapter {
+  margin-top: 34px;
+}
+.chapter h2 {
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.chapter h2 em {
+  font-style: normal;
+  color: #a9c49e;
+  font-family: Georgia, serif;
+  font-size: 20px;
+}
+.chapter h2 > span {
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: #637d7e;
+}
+.stage-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+.stage-card {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  padding: 18px;
+  min-height: 140px;
+  border-radius: 8px;
+  gap: 16px;
+  background: #11212c;
+  font-size: 12px;
+  font-weight: 400;
+}
+.stage-card-top {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.stage-card-top b {
+  font-family: Georgia, serif;
+  font-size: 27px;
+  font-weight: 400;
+  color: #b4c9b2;
+}
+.stage-card-top svg {
+  width: 15px;
+  height: 15px;
+  color: #aac1b0;
+}
+.stage-card small {
+  font-size: 9px;
+  color: #809e92;
+  margin-top: auto;
+}
+.stage-card.completed {
+  border-color: #a5cf9740;
+}
+.play-shell {
+  max-width: 1040px;
+  margin: auto;
+  padding: 0 32px 20px;
+}
+.play-header {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+.play-brand {
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  color: #e0e5d8;
+  text-decoration: none;
+}
+.play-content {
+  max-width: 650px;
+  margin: 25px auto 0;
+}
+.stage-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.stage-heading .eyebrow {
+  font-size: 9px;
+  letter-spacing: 0.09em;
+}
+.stage-heading h1 {
+  font-size: 21px;
+  font-weight: 400;
+  margin: 9px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  letter-spacing: 0.06em;
+}
+.stage-heading h1 > span {
+  font-family: Georgia, serif;
+  color: #a7c19d;
+  font-size: 29px;
+}
+.timer {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: #c0cec4;
+}
+.timer small {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: #7d9691;
+  margin-bottom: 6px;
+}
+.timer output {
+  font-size: 23px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+}
+.timer output span {
+  font-size: 12px;
+  margin-left: 3px;
+}
+.board-wrap {
+  border: 1px solid #8ca99d35;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 70px #00000030;
+  position: relative;
+}
+.board-hint {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: normal;
+  text-align: center;
+  max-width: 90%;
+  width: max-content;
+  font-size: 11px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  color: #c1cebf;
+  background: #0b1828c9;
+  padding: 7px 16px;
+  border: 1px solid #8ba19024;
+  border-radius: 30px;
+  pointer-events: none;
+}
+.play-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.play-tools > div:last-child {
+  display: flex;
+  gap: 1px;
+  align-items: center;
+}
+.text-button {
+  font-size: 11px;
+  color: #9aadab;
+  padding: 8px 10px;
+}
+.control-deck {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+}
+.keyboard-help {
+  padding-left: 6px;
+}
+.key-row {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.key-row kbd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #9db2a638;
+  border-radius: 4px;
+  font-size: 10px;
+  color: #afc1b6;
+  background: #18262e;
+}
+.key-row > span {
+  font-size: 12px;
+  color: #65817e;
+  margin: 0 4px;
+}
+.keyboard-help p {
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+  margin: 12px 0;
+  color: #a5b5ad;
+}
+.keyboard-help small {
+  display: block;
+  font-size: 9px;
+  color: #6d8784;
+}
+.joystick {
+  width: 108px;
+  height: 108px;
+  border: 1px solid #98b7a32c;
+  background: radial-gradient(circle, #213b38a1, #1225294d);
+  border-radius: 50%;
+  position: relative;
+  touch-action: none;
+  user-select: none;
+  flex-shrink: 0;
+  margin: 3px 15px 12px;
+  cursor: grab;
+}
+.joystick:active {
+  cursor: grabbing;
+}
+.stick-cross {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #819a8a44;
+  font-size: 74px;
+  font-weight: 100;
+}
+.stick-knob {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 39px;
+  height: 39px;
+  transform: translate(-50%, -50%);
+  border: 1px solid #b7d6b65e;
+  background: linear-gradient(140deg, #698e7a, #344f48);
+  border-radius: 50%;
+  box-shadow: 0 4px 14px #0005;
+  pointer-events: none;
+}
+.stick-label {
+  position: absolute;
+  bottom: -20px;
+  width: 100%;
+  font-size: 8px;
+  letter-spacing: 0.17em;
+  color: #718f83;
+  text-align: center;
+}
+.touch-help {
+  display: none;
+}
+dialog {
+  border: 1px solid #91b1a43f;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #182d36, #0c1928);
+  color: var(--cream);
+  width: min(440px, calc(100% - 32px));
+  max-height: calc(100dvh - 40px);
+  padding: 34px;
+  text-align: center;
+  box-shadow: 0 30px 120px #0008;
+  overflow: auto;
+}
+dialog::backdrop {
+  background: #030b16b8;
+  backdrop-filter: blur(5px);
+}
+dialog h2 {
+  font-family: Georgia, "Noto Serif CJK JP", serif;
+  font-size: 25px;
+  font-weight: 400;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+dialog .eyebrow {
+  justify-content: center;
+  font-size: 8px;
+}
+dialog .primary {
+  width: 100%;
+}
+dialog .modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 23px;
+}
+dialog .muted {
+  font-size: 12px;
+}
+dialog .fine {
+  font-size: 10px;
+  line-height: 1.9;
+  color: #7f9993;
+  margin: 22px 0 0;
+}
+.result-orbit {
+  margin: 0 auto 23px;
+  border: 1px solid #86c5a866;
+  box-shadow: 0 0 35px #8febbb16;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: #bde9bc;
+}
+.result-time {
+  font-family: Georgia, serif;
+  font-size: 48px;
+  color: #c8e4bf;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 22px;
+  gap: 12px;
+}
+.record-badge {
+  font-family: Arial, sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: #d4d2a4;
+  border: 1px solid #cecb933d;
+  padding: 5px 8px;
+  border-radius: 3px;
+}
+.best-time {
+  font-size: 11px;
+  color: #8da69c;
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+.best-time strong {
+  font-weight: 400;
+  color: #cad8ca;
+  font-variant-numeric: tabular-nums;
+}
+.failure-symbol {
+  color: #ffb0a3;
+  font-size: 45px;
+  width: 64px;
+  height: 64px;
+  border: 1px solid #b7636344;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 22px;
+  background: #b1585822;
+}
+.settings-list {
+  text-align: left;
+  margin: 25px 0;
+}
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+  cursor: pointer;
+  position: relative;
+  font-size: 13px;
+  min-height: 70px;
+}
+.setting-row small {
+  display: block;
+  font-size: 9px;
+  color: #839b98;
+  line-height: 1.8;
+  margin-top: 5px;
+}
+.setting-row input {
+  position: absolute;
+  right: 0;
+  opacity: 0;
+  width: 44px;
+  height: 44px;
+}
+.toggle {
+  width: 38px;
+  height: 23px;
+  background: #35474c;
+  border: 1px solid #8fa29444;
+  flex-shrink: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  position: relative;
+}
+.toggle:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  left: 3px;
+  top: 3px;
+  background: #96a69c;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+.setting-row input:checked + .toggle {
+  background: #a4c69e;
+}
+.setting-row input:checked + .toggle:after {
+  transform: translateX(15px);
+  background: #243d33;
+}
+.setting-row input:focus-visible + .toggle {
+  outline: 2px solid var(--green);
+  outline-offset: 5px;
+}
+.url-setting {
+  display: block;
+  text-align: left;
+  font-size: 11px;
+  color: #b5c4b9;
+}
+.url-setting input,
+.share-text {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid #8ca99944;
+  background: #0b1925;
+  color: #d6e2d2;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.url-setting small {
+  display: block;
+  color: #7b948f;
+  font-size: 9px;
+}
+.url-setting ~ .primary {
+  margin-top: 20px;
+}
+.how-list {
+  text-align: left;
+  margin: 24px 0;
+}
+.how-list p {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  font-size: 13px;
+  margin: 24px 0;
+}
+.how-list b {
+  font-family: Georgia, serif;
+  color: #b2c7a5;
+  font-size: 25px;
+  font-weight: 400;
+}
+.how-list small {
+  display: block;
+  color: #8ca69e;
+  font-size: 11px;
+  line-height: 1.9;
+  margin-top: 6px;
+}
+.hint-text {
+  font-size: 15px;
+  line-height: 2;
+  margin: 20px 0 0;
+  color: #b8d6b0;
+}
+.hint-text ~ .primary {
+  margin-top: 25px;
+}
+.share-text {
+  min-height: 130px;
+  line-height: 1.8;
+}
+#toast {
+  position: fixed;
+  bottom: max(25px, env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: #c1debb;
+  color: #183328;
+  font-size: 12px;
+  padding: 14px 22px;
+  border-radius: 6px;
+  box-shadow: 0 5px 25px #0005;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+  z-index: 10;
+  max-width: 90%;
+  width: max-content;
+}
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+@media (min-width: 1100px) and (max-height: 900px) {
+  .hero {
+    padding: 34px 0;
+    gap: 68px;
+  }
+  .hero-art {
+    max-width: 490px;
+    justify-self: end;
+  }
+  .hero h1 {
+    font-size: 54px;
+  }
+  .tagline {
+    font-size: 18px;
+    margin-top: 23px;
+  }
+  .home-foot {
+    padding: 21px 0;
+  }
+  .play-content {
+    max-width: 540px;
+    margin-top: 18px;
+  }
+  .stage-heading {
+    margin-bottom: 14px;
+  }
+  .play-header {
+    height: 64px;
+  }
+  .control-deck {
+    padding-top: 10px;
+  }
+  .joystick {
+    width: 90px;
+    height: 90px;
+  }
+  .board-hint {
+    bottom: 20px;
+  }
+}
+@media (max-width: 900px) {
+  .shell {
+    padding: 0 28px;
+  }
+  .site-header {
+    height: 88px;
+  }
+  .hero {
+    gap: 24px;
+    padding: 40px 0;
+  }
+  .hero h1 {
+    font-size: 42px;
+  }
+  .hero-copy .eyebrow {
+    font-size: 7px;
+    letter-spacing: 0.1em;
+  }
+  .tagline {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  .intro {
+    font-size: 11px;
+  }
+  .hero-meta {
+    gap: 8px;
+    font-size: 8px;
+  }
+  .hero-actions .primary {
+    min-width: 210px;
+    padding: 13px 16px;
+    font-size: 12px;
+  }
+  .art-note {
+    display: none;
+  }
+  .art-bottom {
+    padding: 0 16px 17px;
+  }
+  .art-caption {
+    font-size: 6px;
+    padding: 16px 16px 0;
+  }
+  .home-foot {
+    gap: 18px;
+  }
+  .chapter-index {
+    display: none;
+  }
+  .footer-note {
+    font-size: 9px;
+  }
+  .mini-step {
+    gap: 9px;
+  }
+  .mini-step > span {
+    font-size: 11px;
+  }
+  .site-footer {
+    font-size: 7px;
+  }
+  .stage-card {
+    padding: 14px;
+    font-size: 11px;
+  }
+  .stage-grid {
+    gap: 8px;
+  }
+  .stage-card-top b {
+    font-size: 23px;
+  }
+}
+@media (max-width: 600px) {
+  .shell {
+    padding: 0 22px;
+  }
+  .site-header {
+    height: 77px;
+  }
+  .brand {
+    font-size: 12px;
+    gap: 9px;
+  }
+  .brand-mark {
+    width: 29px;
+    height: 29px;
+  }
+  .brand-mark svg {
+    width: 18px;
+    height: 18px;
+  }
+  .brand small {
+    font-size: 6px;
+    margin-top: 4px;
+  }
+  .site-header nav {
+    gap: 0;
+  }
+  .site-header .quiet {
+    font-size: 11px;
+    padding: 10px;
+  }
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    padding: 32px 0;
+  }
+  .hero-copy {
+    width: 100%;
+    position: relative;
+  }
+  .hero-copy .eyebrow {
+    font-size: 7px;
+    letter-spacing: 0.13em;
+  }
+  .tagline {
+    font-size: 13px;
+    line-height: 1.8;
+    margin: 18px 0 10px;
+  }
+  .tagline br {
+    display: none;
+  }
+  .hero h1 {
+    font-size: 43px;
+    line-height: 1.35;
+    margin-bottom: 17px;
+    letter-spacing: 0.06em;
+  }
+  .hero h1 br {
+    display: none;
+  }
+  .intro {
+    font-size: 11px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+  .intro br {
+    display: none;
+  }
+  .hero-actions {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-actions .primary {
+    min-width: 0;
+    flex: 1;
+    font-size: 11px;
+    min-height: 48px;
+    gap: 10px;
+    padding: 12px 14px;
+  }
+  .hero-actions .secondary {
+    font-size: 10px;
+    gap: 5px;
+    padding: 10px 5px;
+  }
+  .hero-actions .secondary svg {
+    width: 14px;
+    height: 14px;
+  }
+  .hero-meta {
+    font-size: 8px;
+    margin-top: 16px;
+    gap: 10px;
+  }
+  .hero-art {
+    width: 100%;
+    max-width: 430px;
+  }
+  .art-caption {
+    font-size: 7px;
+  }
+  .art-bottom {
+    padding-bottom: 18px;
+    padding-top: 1px;
+  }
+  .legend {
+    font-size: 9px;
+    gap: 16px;
+  }
+  .hero-art canvas {
+    margin-top: -2px;
+  }
+  .home-foot {
+    padding: 22px 0;
+    gap: 15px;
+  }
+  .mini-step b {
+    font-size: 21px;
+  }
+  .mini-step > span {
+    font-size: 10px;
+  }
+  .mini-step small {
+    font-size: 7px;
+  }
+  .flow-line {
+    font-size: 12px;
+  }
+  .footer-note {
+    display: none;
+  }
+  .site-footer {
+    font-size: 6px;
+    padding: 20px 0;
+    letter-spacing: 0.04em;
+  }
+  .selection {
+    padding: 30px 0;
+  }
+  .selection .eyebrow {
+    font-size: 8px;
+  }
+  .section-title {
+    gap: 10px;
+  }
+  .section-title h1 {
+    font-size: 24px;
+  }
+  .section-title > span {
+    font-size: 9px;
+  }
+  .selection > .muted {
+    font-size: 10px;
+  }
+  .chapter {
+    margin-top: 28px;
+  }
+  .chapter h2 {
+    font-size: 12px;
+    margin-bottom: 13px;
+  }
+  .chapter h2 > span {
+    font-size: 7px;
+    margin-left: auto;
+  }
+  .stage-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .stage-card {
+    padding: 12px 10px;
+    min-height: 120px;
+    gap: 13px;
+    font-size: 10px;
+  }
+  .stage-card small {
+    font-size: 8px;
+  }
+  .stage-card-top b {
+    font-size: 25px;
+  }
+  .play-shell {
+    padding: 0 16px max(16px, env(safe-area-inset-bottom));
+  }
+  .play-header {
+    height: 61px;
+  }
+  .play-brand {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+  .play-header .icon-button {
+    width: 43px;
+    padding: 10px;
+  }
+  .play-content {
+    margin-top: 19px;
+  }
+  .stage-heading {
+    margin-bottom: 15px;
+  }
+  .stage-heading h1 {
+    font-size: 17px;
+    gap: 11px;
+  }
+  .stage-heading h1 > span {
+    font-size: 25px;
+  }
+  .stage-heading .eyebrow {
+    font-size: 8px;
+  }
+  .timer output {
+    font-size: 21px;
+  }
+  .board-wrap {
+    border-radius: 8px;
+  }
+  .board-hint {
+    bottom: 16px;
+    font-size: 9px;
+    padding: 5px 11px;
+    max-width: 92%;
+  }
+  .play-tools {
+    padding: 6px 0;
+  }
+  .play-tools .legend {
+    gap: 9px;
+    font-size: 8px;
+  }
+  .legend > span {
+    gap: 5px;
+  }
+  .play-tools .icon-button {
+    width: 40px;
+    min-height: 44px;
+    padding: 11px;
+  }
+  .play-tools .text-button {
+    font-size: 10px;
+    padding: 8px 4px;
+  }
+  .control-deck {
+    padding: 20px 12px 0;
+    align-items: center;
+  }
+  .keyboard-help {
+    display: none;
+  }
+  .touch-help {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .touch-help strong {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #c1cfc0;
+  }
+  .touch-help span {
+    font-size: 10px;
+    color: #79988f;
+    line-height: 1.9;
+  }
+  .joystick {
+    width: 116px;
+    height: 116px;
+    margin: 0 6px 19px;
+  }
+  .stick-knob {
+    width: 43px;
+    height: 43px;
+  }
+  dialog {
+    padding: 27px 23px;
+    width: calc(100% - 32px);
+  }
+  dialog h2 {
+    font-size: 23px;
+  }
+  .modal-actions {
+    margin-top: 20px;
+  }
+  .setting-row small {
+    font-size: 8px;
+  }
+  .setting-row {
+    font-size: 12px;
+  }
+  .result-time {
+    font-size: 43px;
+  }
+  .how-list small {
+    font-size: 10px;
+  }
+}
+@media (max-width: 360px) {
+  .shell {
+    padding: 0 17px;
+  }
+  .hero h1 {
+    font-size: 37px;
+  }
+  .hero-actions {
+    gap: 3px;
+  }
+  .hero-actions .primary {
+    font-size: 10px;
+  }
+  .hero-actions .secondary {
+    font-size: 9px;
+  }
+  .play-shell {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .play-tools .legend {
+    gap: 6px;
+  }
+  .play-tools .text-button {
+    font-size: 9px;
+  }
+  .control-deck {
+    padding-left: 6px;
+    padding-right: 0;
+  }
+  .touch-help strong {
+    font-size: 11px;
+  }
+  .joystick {
+    width: 100px;
+    height: 100px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+/* Keep the board and pad together on short portrait screens. */
+@media (max-width: 600px) and (max-height: 700px) and (orientation: portrait) {
+  .play-header {
+    height: 49px;
+  }
+  .play-content {
+    margin-top: 11px;
+  }
+  .stage-heading {
+    margin-bottom: 10px;
+  }
+  .stage-heading h1 {
+    margin-top: 5px;
+    font-size: 15px;
+  }
+  .stage-heading h1 > span {
+    font-size: 23px;
+  }
+  .stage-heading .eyebrow {
+    font-size: 7px;
+  }
+  .board-wrap {
+    max-width: calc((100svh - 292px) * 640 / 600);
+    margin: 0 auto;
+  }
+  .board-hint {
+    bottom: 12px;
+    font-size: 8px;
+  }
+  .play-tools {
+    padding: 3px 0;
+  }
+  .control-deck {
+    padding-top: 12px;
+  }
+  .joystick {
+    width: 94px;
+    height: 94px;
+    margin-bottom: 14px;
+  }
+  .stick-knob {
+    width: 37px;
+    height: 37px;
+  }
+  .touch-help {
+    gap: 6px;
+  }
+  .touch-help strong {
+    font-size: 11px;
+  }
+  .touch-help span {
+    font-size: 9px;
+  }
+  .stick-label {
+    bottom: -16px;
+  }
+  .play-shell {
+    padding-bottom: 8px;
+  }
+}
+@media (min-width: 1000px) and (max-height: 800px) {
+  .play-content {
+    max-width: 420px;
+    margin-top: 13px;
+  }
+  .stage-heading {
+    margin-bottom: 10px;
+  }
+  .stage-heading h1 {
+    font-size: 17px;
+    margin-top: 5px;
+  }
+  .stage-heading h1 > span {
+    font-size: 24px;
+  }
+  .play-header {
+    height: 56px;
+  }
+  .joystick {
+    width: 76px;
+    height: 76px;
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+  .stick-knob {
+    width: 32px;
+    height: 32px;
+  }
+  .control-deck {
+    padding-top: 10px;
+  }
+  .keyboard-help p {
+    margin: 8px 0;
+    font-size: 11px;
+  }
+  .key-row kbd {
+    width: 21px;
+    height: 21px;
+  }
+  .board-hint {
+    font-size: 10px;
+  }
+  .play-tools {
+    padding: 2px 0;
+  }
+  .play-shell {
+    padding-bottom: 10px;
+  }
+}
+@media (min-width: 600px) and (max-height: 500px) and (orientation: landscape) {
+  .play-shell {
+    padding: 0 20px 8px;
+  }
+  .play-header {
+    height: 43px;
+  }
+  .play-content {
+    display: grid;
+    grid-template-columns: minmax(250px, 1fr) 185px;
+    column-gap: 22px;
+    max-width: 750px;
+    margin-top: 8px;
+  }
+  .stage-heading {
+    grid-column: 1/-1;
+    margin-bottom: 8px;
+  }
+  .stage-heading h1 {
+    font-size: 15px;
+    margin-top: 3px;
+    gap: 10px;
+  }
+  .stage-heading h1 > span {
+    font-size: 21px;
+  }
+  .stage-heading .eyebrow {
+    font-size: 7px;
+  }
+  .timer output {
+    font-size: 19px;
+  }
+  .timer small {
+    margin-bottom: 2px;
+    font-size: 7px;
+  }
+  .board-wrap {
+    grid-column: 1;
+    grid-row: 2/4;
+    max-width: calc((100svh - 116px) * 640 / 600);
+    width: 100%;
+    justify-self: center;
+  }
+  .board-hint {
+    font-size: 8px;
+    bottom: 12px;
+    padding: 4px 9px;
+  }
+  .play-tools {
+    grid-column: 2;
+    grid-row: 2;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+    align-self: end;
+  }
+  .play-tools .legend {
+    font-size: 9px;
+    gap: 12px;
+  }
+  .control-deck {
+    grid-column: 2;
+    grid-row: 3;
+    padding: 10px 0 0;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .keyboard-help,
+  .touch-help {
+    display: none;
+  }
+  .joystick {
+    width: 105px;
+    height: 105px;
+    margin: 8px 0 15px;
+  }
+  .stick-knob {
+    width: 39px;
+    height: 39px;
+  }
+}
+@media (max-width: 600px) {
+  .hero h1 br,
+  .intro br {
+    display: block;
+  }
+  .hero h1 span {
+    white-space: nowrap;
+  }
+}
+
+</style>
+</head>
+  <body>
+    <div id="app"></div>
+    <script type="importmap">{"imports":{"game/geometry":"data:text/javascript;base64,ZXhwb3J0IGNvbnN0IFdPUkxEID0gewogICAgd2lkdGg6IDY0MCwKICAgIGhlaWdodDogNjAwLAogICAgbWFyZ2luOiAyOAp9OwpleHBvcnQgY29uc3QgQk9EWV9SQURJVVMgPSAxMjsKZXhwb3J0IGNvbnN0IFNIQURPV19CQVNFX1JBRElVUyA9IDc7CmV4cG9ydCBjb25zdCBTSEFET1dfVElQX1JBRElVUyA9IDExOwpleHBvcnQgY29uc3QgZGlzdCA9IChhLCBiKT0+TWF0aC5oeXBvdChhLnggLSBiLngsIGEueSAtIGIueSk7CmV4cG9ydCBjb25zdCBsZXJwID0gKGEsIGIsIHQpPT4oewogICAgICAgIHg6IGEueCArIChiLnggLSBhLngpICogdCwKICAgICAgICB5OiBhLnkgKyAoYi55IC0gYS55KSAqIHQKICAgIH0pOwpleHBvcnQgZnVuY3Rpb24gbGlnaHRBdChsaWdodCwgdGltZSkgewogICAgY29uc3QgcCA9IHsKICAgICAgICAuLi5saWdodAogICAgfTsKICAgIGlmIChsaWdodC5tb3Rpb24pIHsKICAgICAgICBjb25zdCBtID0gbGlnaHQubW90aW9uOwogICAgICAgIHBbbS5heGlzXSArPSBtLmFtcGxpdHVkZSAqIE1hdGguc2luKHRpbWUgKiBNYXRoLlBJICogMiAvIG0ucGVyaW9kICsgKG0ucGhhc2UgPz8gMCkpOwogICAgfQogICAgcmV0dXJuIHA7Cn0KZXhwb3J0IGZ1bmN0aW9uIHByb2plY3QobGlnaHQsIHAsIGggPSAxKSB7CiAgICBpZiAoIU51bWJlci5pc0Zpbml0ZShsaWdodC5IKSB8fCBsaWdodC5IIDw9IGggfHwgaCA8PSAwKSB0aHJvdyBuZXcgUmFuZ2VFcnJvcigiTGlnaHQgaGVpZ2h0IG11c3QgZXhjZWVkIGNoYXJhY3RlciBoZWlnaHQiKTsKICAgIGNvbnN0IGsgPSBsaWdodC5IIC8gKGxpZ2h0LkggLSBoKTsKICAgIHJldHVybiB7CiAgICAgICAgeDogbGlnaHQueCArIGsgKiAocC54IC0gbGlnaHQueCksCiAgICAgICAgeTogbGlnaHQueSArIGsgKiAocC55IC0gbGlnaHQueSkKICAgIH07Cn0KY29uc3QgY3Jvc3MgPSAoYSwgYiwgYyk9PihiLnggLSBhLngpICogKGMueSAtIGEueSkgLSAoYi55IC0gYS55KSAqIChjLnggLSBhLngpOwpleHBvcnQgZnVuY3Rpb24gaHVsbChwb2ludHMpIHsKICAgIGNvbnN0IHAgPSBbCiAgICAgICAgLi4ucG9pbnRzCiAgICBdLnNvcnQoKGEsIGIpPT5hLnggLSBiLnggfHwgYS55IC0gYi55KTsKICAgIGNvbnN0IGxvID0gW10sIGhpID0gW107CiAgICBmb3IgKGNvbnN0IHYgb2YgcCl7CiAgICAgICAgd2hpbGUobG8ubGVuZ3RoID49IDIgJiYgY3Jvc3MobG8uYXQoLTIpLCBsby5hdCgtMSksIHYpIDw9IDApbG8ucG9wKCk7CiAgICAgICAgbG8ucHVzaCh2KTsKICAgIH0KICAgIGZvciAoY29uc3QgdiBvZiBwLnJldmVyc2UoKSl7CiAgICAgICAgd2hpbGUoaGkubGVuZ3RoID49IDIgJiYgY3Jvc3MoaGkuYXQoLTIpLCBoaS5hdCgtMSksIHYpIDw9IDApaGkucG9wKCk7CiAgICAgICAgaGkucHVzaCh2KTsKICAgIH0KICAgIHJldHVybiBsby5zbGljZSgwLCAtMSkuY29uY2F0KGhpLnNsaWNlKDAsIC0xKSk7Cn0KZXhwb3J0IGZ1bmN0aW9uIHNoYWRvd1BvbHlnb24ocCwgcykgewogICAgY29uc3QgcG9pbnRzID0gW107CiAgICBmb3IobGV0IGkgPSAwOyBpIDwgMTY7IGkrKyl7CiAgICAgICAgY29uc3QgYSA9IGkgKiBNYXRoLlBJIC8gODsKICAgICAgICBwb2ludHMucHVzaCh7CiAgICAgICAgICAgIHg6IHAueCArIE1hdGguY29zKGEpICogU0hBRE9XX0JBU0VfUkFESVVTLAogICAgICAgICAgICB5OiBwLnkgKyBNYXRoLnNpbihhKSAqIFNIQURPV19CQVNFX1JBRElVUwogICAgICAgIH0sIHsKICAgICAgICAgICAgeDogcy54ICsgTWF0aC5jb3MoYSkgKiBTSEFET1dfVElQX1JBRElVUywKICAgICAgICAgICAgeTogcy55ICsgTWF0aC5zaW4oYSkgKiBTSEFET1dfVElQX1JBRElVUwogICAgICAgIH0pOwogICAgfQogICAgcmV0dXJuIGh1bGwocG9pbnRzKTsKfQpleHBvcnQgZnVuY3Rpb24gc2VnbWVudERpc3RhbmNlKHAsIGEsIGIpIHsKICAgIGNvbnN0IGQgPSAoYi54IC0gYS54KSAqKiAyICsgKGIueSAtIGEueSkgKiogMjsKICAgIGNvbnN0IHQgPSBkID8gTWF0aC5tYXgoMCwgTWF0aC5taW4oMSwgKChwLnggLSBhLngpICogKGIueCAtIGEueCkgKyAocC55IC0gYS55KSAqIChiLnkgLSBhLnkpKSAvIGQpKSA6IDA7CiAgICByZXR1cm4gZGlzdChwLCBsZXJwKGEsIGIsIHQpKTsKfQpleHBvcnQgZnVuY3Rpb24gcG9pbnRJblBvbHlnb24ocCwgcG9seSkgewogICAgbGV0IGluc2lkZSA9IGZhbHNlOwogICAgZm9yKGxldCBpID0gMCwgaiA9IHBvbHkubGVuZ3RoIC0gMTsgaSA8IHBvbHkubGVuZ3RoOyBqID0gaSsrKXsKICAgICAgICBjb25zdCBhID0gcG9seVtpXSwgYiA9IHBvbHlbal07CiAgICAgICAgaWYgKGEueSA+IHAueSAhPT0gYi55ID4gcC55ICYmIHAueCA8IChiLnggLSBhLngpICogKHAueSAtIGEueSkgLyAoYi55IC0gYS55KSArIGEueCkgaW5zaWRlID0gIWluc2lkZTsKICAgIH0KICAgIHJldHVybiBpbnNpZGU7Cn0KZXhwb3J0IGZ1bmN0aW9uIHBvbHlnb25DaXJjbGUocG9seSwgYywgcikgewogICAgcmV0dXJuIHBvaW50SW5Qb2x5Z29uKGMsIHBvbHkpIHx8IHBvbHkuc29tZSgoYSwgaSk9PnNlZ21lbnREaXN0YW5jZShjLCBhLCBwb2x5WyhpICsgMSkgJSBwb2x5Lmxlbmd0aF0pIDw9IHIpOwp9CmV4cG9ydCBmdW5jdGlvbiBjaXJjbGVSZWN0KHAsIHIsIHcpIHsKICAgIHJldHVybiBNYXRoLmh5cG90KHAueCAtIE1hdGgubWF4KHcueCwgTWF0aC5taW4ody54ICsgdy53LCBwLngpKSwgcC55IC0gTWF0aC5tYXgody55LCBNYXRoLm1pbih3LnkgKyB3LmgsIHAueSkpKSA8IHI7Cn0K","game/stages":"data:text/javascript;base64,Y29uc3QgdiA9ICh4LCB5KT0+KHsKICAgICAgICB4LAogICAgICAgIHkKICAgIH0pOwpjb25zdCB3YWxsID0gKHgsIHksIHcsIGgpPT4oewogICAgICAgIHgsCiAgICAgICAgeSwKICAgICAgICB3LAogICAgICAgIGgKICAgIH0pOwpjb25zdCBoYXphcmQgPSAoeCwgeSwgciA9IDIyKT0+KHsKICAgICAgICB4LAogICAgICAgIHksCiAgICAgICAgcgogICAgfSk7CmNvbnN0IGxpZ2h0ID0gKHgsIHksIEggPSAyKT0+KHsKICAgICAgICB4LAogICAgICAgIHksCiAgICAgICAgSAogICAgfSk7CmZ1bmN0aW9uIHN0YWdlKGlkLCB0aXRsZSwgaGludCwgc3RhcnQsIEwsIGdvYWwsIHNvbHV0aW9uLCB3YWxscyA9IFtdLCBoYXphcmRzID0gW10pIHsKICAgIHJldHVybiB7CiAgICAgICAgaWQsCiAgICAgICAgdGl0bGUsCiAgICAgICAgaGludCwKICAgICAgICBjaGFwdGVyOiBpZCA8PSA1ID8gIjAxIC8g5b2x44Go44Gu5Ye65Lya44GEIiA6IGlkIDw9IDEwID8gIjAyIC8g5Y2x44GG44GE6YGT44Gu44KKIiA6ICIwMyAvIOWFieOCkuiqreOCgCIsCiAgICAgICAgc3RhcnQsCiAgICAgICAgbGlnaHQ6IEwsCiAgICAgICAgZ29hbCwKICAgICAgICBzb2x1dGlvbiwKICAgICAgICB3YWxscywKICAgICAgICBoYXphcmRzCiAgICB9Owp9CmV4cG9ydCBjb25zdCBzdGFnZXMgPSBbCiAgICBzdGFnZSgxLCAi5b2x44KS5Ly444Gw44Gb77yBIiwgIuWFieOBi+OCiembouOCjOOCi+OBqOOAgeW9seOBr+mVt+OBj+OBquOCi+OAgiIsIHYoMjU1LCAyOTApLCBsaWdodCgxNjAsIDIyMCksIHYoNTAwLCA0MDApLCBbCiAgICAgICAgdigzMzAsIDMxMCkKICAgIF0pLAogICAgc3RhZ2UoMiwgIuWQkeOBjeOCkuWkieOBiOOCje+8gSIsICLlhYnjgpLkuK3lv4PjgavjgIHlvbHjga7lkJHjgY3jgpLlpInjgYjjgabjgb/jgojjgYbjgIIiLCB2KDMwMCwgMzQwKSwgbGlnaHQoMzIwLCAxNjApLCB2KDEzMCwgNDIwKSwgWwogICAgICAgIHYoMjI1LCAyOTApCiAgICBdKSwKICAgIHN0YWdlKDMsICLjgaHjgofjgYbjganjgYTjgYTplbfjgZUiLCAi6ZW344GZ44GO44Gm44KC5bGK44GL44Gq44GE44CC5bCR44GX5oi744KL44Gu44KC5q2j6Kej44CCIiwgdigzNTAsIDM1MCksIGxpZ2h0KDE2MCwgMTYwKSwgdig0MTAsIDM2MCksIFsKICAgICAgICB2KDI4NSwgMjYwKQogICAgXSksCiAgICBzdGFnZSg0LCAi57Sw44GE6YCa6LevIiwgIuefs+OBruWjgeOBr+OAgeW9seOBoOOBkeOBjOmAmuOCiuaKnOOBkeOCieOCjOOCi+OAgiIsIHYoMjMwLCAzMDApLCBsaWdodCgxMjAsIDMwMCksIHYoNTMwLCAzMDApLCBbCiAgICAgICAgdigzMjUsIDMwMCkKICAgIF0sIFsKICAgICAgICB3YWxsKDM5MCwgODAsIDM1LCAxOTApLAogICAgICAgIHdhbGwoMzkwLCAzMzAsIDM1LCAxOTApCiAgICBdKSwKICAgIHN0YWdlKDUsICLov5HjgaXjgY/jgarvvIEiLCAi5ZCR44GT44GG5bK444G46KGM44GP44Gu44Gv44CB44GN44G/44Gu5b2x44CCIiwgdigyMzAsIDM0MCksIGxpZ2h0KDEwMCwgMjAwKSwgdig1NDAsIDQyMCksIFsKICAgICAgICB2KDMyMCwgMzEwKQogICAgXSwgWwogICAgICAgIHdhbGwoMzY1LCAyOCwgMzAsIDU0NCkKICAgIF0pLAogICAgc3RhZ2UoNiwgIuW9seOBq+inpuOCjOOCi+OBqiIsICLotaTjgYTjgajjgZLjgavjga/jgIHlvbHjgoLop6bjgozjgabjga/jgYTjgZHjgarjgYTjgIIiLCB2KDI0MCwgMzcwKSwgbGlnaHQoMTIwLCAxODApLCB2KDUwMCwgMjYwKSwgWwogICAgICAgIHYoMjQwLCAyNDApLAogICAgICAgIHYoMzEwLCAyMjApCiAgICBdLCBbXSwgWwogICAgICAgIGhhemFyZCg0NzAsIDQyMCwgMjgpCiAgICBdKSwKICAgIHN0YWdlKDcsICLpmpnplpPjgpLpgJrjgZsiLCAi5b2x44Gu5bmF44G+44Gn44CB44KI44GP6KaL44Gm44CCIiwgdigyMzUsIDM1MCksIGxpZ2h0KDEwMCwgMzAwKSwgdig1NDAsIDMwMCksIFsKICAgICAgICB2KDI0NSwgMzAwKSwKICAgICAgICB2KDMyMCwgMzAwKQogICAgXSwgW10sIFsKICAgICAgICBoYXphcmQoNDQ1LCAyMzUsIDMzKSwKICAgICAgICBoYXphcmQoNDQ1LCAzNjUsIDMzKQogICAgXSksCiAgICBzdGFnZSg4LCAi5YuV44GR44Gq44GE5aC05omAIiwgIuWwj+OBleOBqumDqOWxi+OBi+OCieOAgeWkp+OBjeOBj+W9seOCkuS8uOOBsOOBneOBhuOAgiIsIHYoMjQ1LCAzMjUpLCBsaWdodCgxMDAsIDEzMCksIHYoNTMwLCA0NTApLCBbCiAgICAgICAgdigzMTUsIDI5MCkKICAgIF0sIFsKICAgICAgICB3YWxsKDE5MCwgMTgwLCAxNjAsIDIwKSwKICAgICAgICB3YWxsKDE5MCwgMTgwLCAyMCwgMjIwKSwKICAgICAgICB3YWxsKDMzMCwgMTgwLCAyMCwgMjIwKSwKICAgICAgICB3YWxsKDE5MCwgMzgwLCAxNjAsIDIwKQogICAgXSksCiAgICBzdGFnZSg5LCAi5Ly444Gw44GX44GZ44GO5rOo5oSPIiwgIuOCtOODvOODq+OBruWwkeOBl+WFiOOBq+OBr+OAgeOBqOOBkuOAgiIsIHYoMjQwLCAyOTApLCBsaWdodCgxMDAsIDIzMCksIHYoNDYwLCAzNTApLCBbCiAgICAgICAgdigyODAsIDI5MCkKICAgIF0sIFtdLCBbCiAgICAgICAgaGF6YXJkKDUzMCwgMzcwLCAyOCksCiAgICAgICAgaGF6YXJkKDQzMCwgNDcwLCAyNCkKICAgIF0pLAogICAgc3RhZ2UoMTAsICLpgIbjgYvjgonogIPjgYjjgo0iLCAi5YWJ44Go44K044O844Or44Gu44CB44Gh44KH44GG44Gp6ZaT44KS5o6i44Gd44GG44CCIiwgdig0MDUsIDMzMCksIGxpZ2h0KDUyMCwgMTQwKSwgdigxNjAsIDQ2MCksIFsKICAgICAgICB2KDQxMCwgMjYwKSwKICAgICAgICB2KDM0MCwgMzAwKQogICAgXSwgWwogICAgICAgIHdhbGwoMjcwLCAzNTUsIDE3MCwgMjIpCiAgICBdLCBbCiAgICAgICAgaGF6YXJkKDIwMCwgMjYwLCAyNCksCiAgICAgICAgaGF6YXJkKDUxMCwgNDUwLCAzMCkKICAgIF0pLAogICAgc3RhZ2UoMTEsICLpmpzlrrPnianjga7ov7fot68iLCAi55+t44GP44GX44Gm44GL44KJ44CB5ZCR44GN44KS5aSJ44GI44KL44CCIiwgdigyMTAsIDQwMCksIGxpZ2h0KDEwMCwgMzAwKSwgdig1MzAsIDE4MCksIFsKICAgICAgICB2KDE4MCwgMzMwKSwKICAgICAgICB2KDE5MCwgMjUwKSwKICAgICAgICB2KDI1MCwgMjQwKSwKICAgICAgICB2KDMxNSwgMjQwKQogICAgXSwgW10sIFsKICAgICAgICBoYXphcmQoMzg1LCAzOTAsIDMzKSwKICAgICAgICBoYXphcmQoMzcwLCAzMDAsIDI4KSwKICAgICAgICBoYXphcmQoNDcwLCAxMDAsIDI0KSwKICAgICAgICBoYXphcmQoNTIwLCAzNDAsIDI4KQogICAgXSksCiAgICBzdGFnZSgxMiwgIumBoOWbnuOCiuOBruato+inoyIsICLjgb7jgaPjgZnjgZDpgLLjgoHjgarjgYTjgarjgonjgIHlhYnjga7ov5HjgY/jgbjjgIIiLCB2KDI3MCwgMzkwKSwgbGlnaHQoMTMwLCAzMDApLCB2KDUxMCwgMjAwKSwgWwogICAgICAgIHYoMTkwLCAzNjApLAogICAgICAgIHYoMTkwLCAyNDApLAogICAgICAgIHYoMzIwLCAyNTApCiAgICBdLCBbCiAgICAgICAgd2FsbCgyMzUsIDI4MCwgMTI1LCAyNSkKICAgIF0sIFsKICAgICAgICBoYXphcmQoNDEwLCAzNDAsIDMxKSwKICAgICAgICBoYXphcmQoNDcwLCA0NDAsIDMwKQogICAgXSksCiAgICBzdGFnZSgxMywgIuWLleOBj+WFiSIsICLlhYnjgYzli5XjgZHjgbDjgIHmraLjgb7jgaPjgabjgYTjgabjgoLlvbHjga/li5XjgY/jgIIiLCB2KDI4MCwgMzMwKSwgewogICAgICAgIC4uLmxpZ2h0KDE1MCwgMTkwKSwKICAgICAgICBtb3Rpb246IHsKICAgICAgICAgICAgYXhpczogIngiLAogICAgICAgICAgICBhbXBsaXR1ZGU6IDYwLAogICAgICAgICAgICBwZXJpb2Q6IDEwCiAgICAgICAgfQogICAgfSwgdig1MDAsIDQxMCksIFsKICAgICAgICB2KDMyNSwgMzAwKQogICAgXSksCiAgICBzdGFnZSgxNCwgIuOCv+OCpOODn+ODs+OCsCIsICLlronlhajjgarloLTmiYDjgafjgIHlhYnjga7jg6rjgrrjg6DjgpLlvoXjgajjgYbjgIIiLCB2KDI2MCwgMzQ1KSwgewogICAgICAgIC4uLmxpZ2h0KDEzMCwgMjAwKSwKICAgICAgICBtb3Rpb246IHsKICAgICAgICAgICAgYXhpczogInkiLAogICAgICAgICAgICBhbXBsaXR1ZGU6IDU1LAogICAgICAgICAgICBwZXJpb2Q6IDgKICAgICAgICB9CiAgICB9LCB2KDUxMCwgMzYwKSwgWwogICAgICAgIHYoMzAwLCAyODApLAogICAgICAgIHYoMzIwLCAyODApCiAgICBdLCBbXSwgWwogICAgICAgIGhhemFyZCg0NjAsIDQ3MCwgMjcpLAogICAgICAgIGhhemFyZCg0ODAsIDI0NSwgMjYpCiAgICBdKSwKICAgIHN0YWdlKDE1LCAi5pyA5b6M44Gu5b2xIiwgIuefreOBj+OAgeWbnuOCiui+vOOBv+OAgeacgOW+jOOBq+S8uOOBsOOBmeOAgiIsIHYoMjU1LCA0MTApLCB7CiAgICAgICAgLi4ubGlnaHQoMTIwLCAzMDApLAogICAgICAgIG1vdGlvbjogewogICAgICAgICAgICBheGlzOiAieSIsCiAgICAgICAgICAgIGFtcGxpdHVkZTogMjQsCiAgICAgICAgICAgIHBlcmlvZDogMTIKICAgICAgICB9CiAgICB9LCB2KDUzMCwgMTgwKSwgWwogICAgICAgIHYoMTgwLCAzNjUpLAogICAgICAgIHYoMTgwLCAyNDUpLAogICAgICAgIHYoMjcwLCAyNDApLAogICAgICAgIHYoMzI1LCAyNDApCiAgICBdLCBbCiAgICAgICAgd2FsbCgyMjUsIDI5MCwgMTIwLCAyNCkKICAgIF0sIFsKICAgICAgICBoYXphcmQoMzk1LCA0MDAsIDMyKSwKICAgICAgICBoYXphcmQoMzkwLCAzMDAsIDI1KSwKICAgICAgICBoYXphcmQoNTAwLCAzMjAsIDI4KSwKICAgICAgICBoYXphcmQoNDkwLCA5MCwgMjQpCiAgICBdKQpdOwo=","game/engine":"data:text/javascript;base64,aW1wb3J0IHsgQk9EWV9SQURJVVMsIFdPUkxELCBkaXN0LCBwcm9qZWN0LCBzaGFkb3dQb2x5Z29uLCBwb2x5Z29uQ2lyY2xlLCBodWxsLCBjaXJjbGVSZWN0LCBsaWdodEF0IH0gZnJvbSAiZ2FtZS9nZW9tZXRyeSI7CmV4cG9ydCBjb25zdCBTUEVFRCA9IDEwODsKZXhwb3J0IGNvbnN0IEZJWEVEX0RUID0gMSAvIDEyMDsKZXhwb3J0IGZ1bmN0aW9uIGNyZWF0ZVN0YXRlKHN0YWdlKSB7CiAgICByZXR1cm4gewogICAgICAgIHBsYXllcjogewogICAgICAgICAgICAuLi5zdGFnZS5zdGFydAogICAgICAgIH0sCiAgICAgICAgdGltZTogMCwKICAgICAgICBzdGF0dXM6ICJwbGF5aW5nIiwKICAgICAgICBtb3ZlZDogZmFsc2UKICAgIH07Cn0KZXhwb3J0IGZ1bmN0aW9uIGNhblN0YW5kKHN0YWdlLCBwKSB7CiAgICBjb25zdCBtID0gV09STEQubWFyZ2luICsgQk9EWV9SQURJVVM7CiAgICByZXR1cm4gcC54ID49IG0gJiYgcC54IDw9IFdPUkxELndpZHRoIC0gbSAmJiBwLnkgPj0gbSAmJiBwLnkgPD0gV09STEQuaGVpZ2h0IC0gbSAmJiAhc3RhZ2Uud2FsbHMuc29tZSgodyk9PmNpcmNsZVJlY3QocCwgQk9EWV9SQURJVVMsIHcpKTsKfQpleHBvcnQgZnVuY3Rpb24gdGlwSW5Hb2FsKHN0YWdlLCB0aXApIHsKICAgIHJldHVybiBkaXN0KHRpcCwgc3RhZ2UuZ29hbCkgPD0gKHN0YWdlLmdvYWxSYWRpdXMgPz8gMjUpIC0gOTsKfQpleHBvcnQgZnVuY3Rpb24gYWR2YW5jZShzdGFnZSwgc3RhdGUsIGlucHV0LCBkdCwgcHJlY2lzaW9uID0gZmFsc2UpIHsKICAgIGlmIChzdGF0ZS5zdGF0dXMgIT09ICJwbGF5aW5nIikgcmV0dXJuIHN0YXRlOwogICAgbGV0IHMgPSB7CiAgICAgICAgLi4uc3RhdGUsCiAgICAgICAgcGxheWVyOiB7CiAgICAgICAgICAgIC4uLnN0YXRlLnBsYXllcgogICAgICAgIH0KICAgIH07CiAgICBjb25zdCBuID0gTWF0aC5tYXgoMSwgTWF0aC5jZWlsKGR0ICogMjQwKSwgTWF0aC5jZWlsKGR0ICogU1BFRUQpKTsKICAgIGNvbnN0IGxlbiA9IE1hdGguaHlwb3QoaW5wdXQueCwgaW5wdXQueSksIG5vcm1hbCA9IE1hdGgubWF4KDEsIGxlbik7CiAgICBmb3IobGV0IGkgPSAwOyBpIDwgbjsgaSsrKXsKICAgICAgICBjb25zdCB0ID0gZHQgLyBuLCBvbGRUaXAgPSBwcm9qZWN0KGxpZ2h0QXQoc3RhZ2UubGlnaHQsIHMudGltZSksIHMucGxheWVyKSwgb2xkUG9seSA9IHNoYWRvd1BvbHlnb24ocy5wbGF5ZXIsIG9sZFRpcCk7CiAgICAgICAgY29uc3Qgc3BlZWQgPSBTUEVFRCAqIChwcmVjaXNpb24gPyAwLjQ1IDogMSksIGR4ID0gaW5wdXQueCAvIG5vcm1hbCAqIHNwZWVkICogdCwgZHkgPSBpbnB1dC55IC8gbm9ybWFsICogc3BlZWQgKiB0OwogICAgICAgIGNvbnN0IG9sZCA9IHsKICAgICAgICAgICAgLi4ucy5wbGF5ZXIKICAgICAgICB9OwogICAgICAgIGNvbnN0IHB4ID0gewogICAgICAgICAgICB4OiBzLnBsYXllci54ICsgZHgsCiAgICAgICAgICAgIHk6IHMucGxheWVyLnkKICAgICAgICB9OwogICAgICAgIGlmIChjYW5TdGFuZChzdGFnZSwgcHgpKSBzLnBsYXllciA9IHB4OwogICAgICAgIGNvbnN0IHB5ID0gewogICAgICAgICAgICB4OiBzLnBsYXllci54LAogICAgICAgICAgICB5OiBzLnBsYXllci55ICsgZHkKICAgICAgICB9OwogICAgICAgIGlmIChjYW5TdGFuZChzdGFnZSwgcHkpKSBzLnBsYXllciA9IHB5OwogICAgICAgIHMudGltZSArPSB0OwogICAgICAgIHMubW92ZWQgfHw9IGRpc3Qob2xkLCBzLnBsYXllcikgPiAwLjAwMDE7CiAgICAgICAgY29uc3QgdGlwID0gcHJvamVjdChsaWdodEF0KHN0YWdlLmxpZ2h0LCBzLnRpbWUpLCBzLnBsYXllciksIHBvbHkgPSBzaGFkb3dQb2x5Z29uKHMucGxheWVyLCB0aXApOwogICAgICAgIGNvbnN0IHN3ZXB0ID0gaHVsbChbCiAgICAgICAgICAgIC4uLm9sZFBvbHksCiAgICAgICAgICAgIC4uLnBvbHkKICAgICAgICBdKTsKICAgICAgICBjb25zdCBoaXQgPSBzdGFnZS5oYXphcmRzLmZpbmQoKGgpPT5wb2x5Z29uQ2lyY2xlKHN3ZXB0LCBoLCBoLnIpKTsKICAgICAgICBpZiAoaGl0KSB7CiAgICAgICAgICAgIHMuc3RhdHVzID0gImZhaWxlZCI7CiAgICAgICAgICAgIHMuaGl0ID0gewogICAgICAgICAgICAgICAgLi4uaGl0CiAgICAgICAgICAgIH07CiAgICAgICAgICAgIHJldHVybiBzOwogICAgICAgIH0KICAgICAgICBpZiAodGlwSW5Hb2FsKHN0YWdlLCB0aXApKSB7CiAgICAgICAgICAgIHMuc3RhdHVzID0gIndvbiI7CiAgICAgICAgICAgIHJldHVybiBzOwogICAgICAgIH0KICAgIH0KICAgIHJldHVybiBzOwp9Cg==","game/render":"data:text/javascript;base64,aW1wb3J0IHsgV09STEQsIHByb2plY3QsIHNoYWRvd1BvbHlnb24sIGxpZ2h0QXQsIGRpc3QgfSBmcm9tICJnYW1lL2dlb21ldHJ5IjsKY29uc3QgVEFVID0gTWF0aC5QSSAqIDI7CmZ1bmN0aW9uIGNpcmNsZShjLCBwLCByLCBmaWxsKSB7CiAgICBjLmJlZ2luUGF0aCgpOwogICAgYy5hcmMocC54LCBwLnksIHIsIDAsIFRBVSk7CiAgICBjLmZpbGxTdHlsZSA9IGZpbGw7CiAgICBjLmZpbGwoKTsKfQpmdW5jdGlvbiBnbG93KGMsIHAsIHIsIGNvbG9yKSB7CiAgICBjb25zdCBnID0gYy5jcmVhdGVSYWRpYWxHcmFkaWVudChwLngsIHAueSwgMCwgcC54LCBwLnksIHIpOwogICAgZy5hZGRDb2xvclN0b3AoMCwgY29sb3IpOwogICAgZy5hZGRDb2xvclN0b3AoMSwgInRyYW5zcGFyZW50Iik7CiAgICBjaXJjbGUoYywgcCwgciwgZyk7Cn0KZnVuY3Rpb24gcGF0aChjLCBwb2ludHMpIHsKICAgIGMuYmVnaW5QYXRoKCk7CiAgICBwb2ludHMuZm9yRWFjaCgocCwgaSk9PmkgPyBjLmxpbmVUbyhwLngsIHAueSkgOiBjLm1vdmVUbyhwLngsIHAueSkpOwogICAgYy5jbG9zZVBhdGgoKTsKfQpmdW5jdGlvbiB0ZXh0KGMsIHMsIHAsIGNvbG9yLCBzaXplID0gMTIpIHsKICAgIGMuZm9udCA9IGA1MDAgJHtzaXplfXB4ICJIZWx2ZXRpY2EgTmV1ZSIsICJOb3RvIFNhbnMiLCBzYW5zLXNlcmlmYDsKICAgIGMudGV4dEFsaWduID0gImNlbnRlciI7CiAgICBjLmZpbGxTdHlsZSA9IGNvbG9yOwogICAgYy5maWxsVGV4dChzLCBwLngsIHAueSk7Cn0KZXhwb3J0IGZ1bmN0aW9uIGRyYXcoYywgc3RhZ2UsIHN0YXRlLCBvcHQpIHsKICAgIGNvbnN0IFcgPSBXT1JMRC53aWR0aCwgSCA9IFdPUkxELmhlaWdodCwgdCA9IG9wdC5yZWR1Y2VkID8gMCA6IG9wdC5jbG9jazsKICAgIGMuY2xlYXJSZWN0KDAsIDAsIFcsIEgpOwogICAgYy5maWxsU3R5bGUgPSAiIzBjMTkyOCI7CiAgICBjLmZpbGxSZWN0KDAsIDAsIFcsIEgpOwogICAgY29uc3QgYmcgPSBjLmNyZWF0ZVJhZGlhbEdyYWRpZW50KDMyMCwgMjQwLCAzMCwgMzIwLCAzMDAsIDQyMCk7CiAgICBiZy5hZGRDb2xvclN0b3AoMCwgIiMxNjJjM2EiKTsKICAgIGJnLmFkZENvbG9yU3RvcCgxLCAiIzBiMTcyNSIpOwogICAgYy5maWxsU3R5bGUgPSBiZzsKICAgIGMuZmlsbFJlY3QoMCwgMCwgVywgSCk7CiAgICBjLnN0cm9rZVN0eWxlID0gIiM4Y2I1YjAwYSI7CiAgICBjLmxpbmVXaWR0aCA9IDE7CiAgICBmb3IobGV0IHggPSAwOyB4IDwgVzsgeCArPSA0MCl7CiAgICAgICAgYy5iZWdpblBhdGgoKTsKICAgICAgICBjLm1vdmVUbyh4LCAwKTsKICAgICAgICBjLmxpbmVUbyh4LCBIKTsKICAgICAgICBjLnN0cm9rZSgpOwogICAgfQogICAgZm9yKGxldCB5ID0gMDsgeSA8IEg7IHkgKz0gNDApewogICAgICAgIGMuYmVnaW5QYXRoKCk7CiAgICAgICAgYy5tb3ZlVG8oMCwgeSk7CiAgICAgICAgYy5saW5lVG8oVywgeSk7CiAgICAgICAgYy5zdHJva2UoKTsKICAgIH0KICAgIGZvcihsZXQgaSA9IDA7IGkgPCA0MjsgaSsrKXsKICAgICAgICBjb25zdCB4ID0gMzggKyBpICogMTM3ICUgNTY2LCB5ID0gNDIgKyBpICogODkgJSA1MTQ7CiAgICAgICAgY2lyY2xlKGMsIHsKICAgICAgICAgICAgeCwKICAgICAgICAgICAgeQogICAgICAgIH0sIGkgJSA0ID09PSAwID8gMS40IDogMC43LCBgcmdiYSgxOTEsMjE3LDIwNCwkezAuMTMgKyAwLjEgKiBNYXRoLnNpbih0ICogMC43ICsgaSl9KWApOwogICAgfQogICAgYy5zdHJva2VTdHlsZSA9ICIjNmQ5MzgzNDUiOwogICAgYy5saW5lV2lkdGggPSAxOwogICAgYy5iZWdpblBhdGgoKTsKICAgIGMucm91bmRSZWN0KDI4LCAyOCwgNTg0LCA1NDQsIDIyKTsKICAgIGMuc3Ryb2tlKCk7CiAgICBjLnN0cm9rZVN0eWxlID0gIiM5YmJlOWI4OCI7CiAgICBmb3IgKGNvbnN0IFt4LCB5LCBzeCwgc3ldIG9mIFsKICAgICAgICBbCiAgICAgICAgICAgIDQxLAogICAgICAgICAgICA0MSwKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMQogICAgICAgIF0sCiAgICAgICAgWwogICAgICAgICAgICA1OTksCiAgICAgICAgICAgIDQxLAogICAgICAgICAgICAtMSwKICAgICAgICAgICAgMQogICAgICAgIF0sCiAgICAgICAgWwogICAgICAgICAgICA0MSwKICAgICAgICAgICAgNTU5LAogICAgICAgICAgICAxLAogICAgICAgICAgICAtMQogICAgICAgIF0sCiAgICAgICAgWwogICAgICAgICAgICA1OTksCiAgICAgICAgICAgIDU1OSwKICAgICAgICAgICAgLTEsCiAgICAgICAgICAgIC0xCiAgICAgICAgXQogICAgXSl7CiAgICAgICAgYy5iZWdpblBhdGgoKTsKICAgICAgICBjLm1vdmVUbyh4ICsgMTggKiBzeCwgeSk7CiAgICAgICAgYy5saW5lVG8oeCwgeSk7CiAgICAgICAgYy5saW5lVG8oeCwgeSArIDE4ICogc3kpOwogICAgICAgIGMuc3Ryb2tlKCk7CiAgICAgICAgY2lyY2xlKGMsIHsKICAgICAgICAgICAgeDogeCArIDYgKiBzeCwKICAgICAgICAgICAgeTogeSArIDYgKiBzeQogICAgICAgIH0sIDEuNSwgIiM5OWJhYTIiKTsKICAgIH0KICAgIGZvcihsZXQgaSA9IDA7IGkgPCAxMzsgaSsrKXsKICAgICAgICBjb25zdCB4ID0gNTYgKyBpICogNDQsIHkgPSA1ODQgKyBpICUgMiAqIDQ7CiAgICAgICAgYy5zYXZlKCk7CiAgICAgICAgYy50cmFuc2xhdGUoeCwgeSk7CiAgICAgICAgYy5yb3RhdGUoTWF0aC5zaW4oaSAqIDMpICogMC42KTsKICAgICAgICBjLnN0cm9rZVN0eWxlID0gIiM0ODY3NTkiOwogICAgICAgIGMuYmVnaW5QYXRoKCk7CiAgICAgICAgYy5tb3ZlVG8oMCwgOCk7CiAgICAgICAgYy5xdWFkcmF0aWNDdXJ2ZVRvKC0yLCAtNCwgMiwgLTEzKTsKICAgICAgICBjLnN0cm9rZSgpOwogICAgICAgIGMuZmlsbFN0eWxlID0gIiMzNDU4NDkiOwogICAgICAgIGMuYmVnaW5QYXRoKCk7CiAgICAgICAgYy5lbGxpcHNlKC00LCAtMywgNiwgMi40LCAwLjUsIDAsIFRBVSk7CiAgICAgICAgYy5lbGxpcHNlKDUsIC04LCA2LCAyLjUsIC0wLjcsIDAsIFRBVSk7CiAgICAgICAgYy5maWxsKCk7CiAgICAgICAgYy5yZXN0b3JlKCk7CiAgICB9CiAgICBjLnNhdmUoKTsKICAgIGMuYmVnaW5QYXRoKCk7CiAgICBjLnJvdW5kUmVjdCgyOCwgMjgsIDU4NCwgNTQ0LCAyMik7CiAgICBjLmNsaXAoKTsKICAgIGZvciAoY29uc3QgdyBvZiBzdGFnZS53YWxscyl7CiAgICAgICAgYy5maWxsU3R5bGUgPSAiIzMxNDc1NyI7CiAgICAgICAgYy5zdHJva2VTdHlsZSA9ICIjNzM4Nzk1IjsKICAgICAgICBjLmxpbmVXaWR0aCA9IDEuNTsKICAgICAgICBjLmJlZ2luUGF0aCgpOwogICAgICAgIGMucm91bmRSZWN0KHcueCwgdy55LCB3LncsIHcuaCwgNSk7CiAgICAgICAgYy5maWxsKCk7CiAgICAgICAgYy5zdHJva2UoKTsKICAgICAgICBjLnNhdmUoKTsKICAgICAgICBjLmNsaXAoKTsKICAgICAgICBjLnN0cm9rZVN0eWxlID0gIiNhNWJlYzMyMyI7CiAgICAgICAgZm9yKGxldCBkID0gLTYwMDsgZCA8IDcwMDsgZCArPSAxNCl7CiAgICAgICAgICAgIGMuYmVnaW5QYXRoKCk7CiAgICAgICAgICAgIGMubW92ZVRvKHcueCArIGQsIHcueSk7CiAgICAgICAgICAgIGMubGluZVRvKHcueCArIGQgKyB3LmgsIHcueSArIHcuaCk7CiAgICAgICAgICAgIGMuc3Ryb2tlKCk7CiAgICAgICAgfQogICAgICAgIGMucmVzdG9yZSgpOwogICAgfQogICAgY29uc3QgbGlnaHQgPSBsaWdodEF0KHN0YWdlLmxpZ2h0LCBzdGF0ZS50aW1lKSwgdGlwID0gcHJvamVjdChsaWdodCwgc3RhdGUucGxheWVyKSwgcG9seSA9IHNoYWRvd1BvbHlnb24oc3RhdGUucGxheWVyLCB0aXApOwogICAgY29uc3Qgc2cgPSBjLmNyZWF0ZUxpbmVhckdyYWRpZW50KHN0YXRlLnBsYXllci54LCBzdGF0ZS5wbGF5ZXIueSwgdGlwLngsIHRpcC55KTsKICAgIHNnLmFkZENvbG9yU3RvcCgwLCAiIzc3N2FjOWFhIik7CiAgICBzZy5hZGRDb2xvclN0b3AoMSwgIiM5Njk2ZTJjYyIpOwogICAgcGF0aChjLCBwb2x5KTsKICAgIGMuZmlsbFN0eWxlID0gc2c7CiAgICBjLmZpbGwoKTsKICAgIGMuc3Ryb2tlU3R5bGUgPSAiI2I2YWRmMWE4IjsKICAgIGMubGluZVdpZHRoID0gMTsKICAgIGMuc3Ryb2tlKCk7CiAgICBjLnNldExpbmVEYXNoKFsKICAgICAgICAzLAogICAgICAgIDcKICAgIF0pOwogICAgYy5zdHJva2VTdHlsZSA9ICIjZTlkY2EzM2IiOwogICAgYy5iZWdpblBhdGgoKTsKICAgIGMubW92ZVRvKGxpZ2h0LngsIGxpZ2h0LnkpOwogICAgYy5saW5lVG8oc3RhdGUucGxheWVyLngsIHN0YXRlLnBsYXllci55KTsKICAgIGMuc3Ryb2tlKCk7CiAgICBjLnNldExpbmVEYXNoKFtdKTsKICAgIGNvbnN0IGdvYWwgPSBzdGFnZS5nb2FsLCBwdWxzZSA9IDEgKyAwLjA1ICogTWF0aC5zaW4odCAqIDIpOwogICAgZ2xvdyhjLCBnb2FsLCA3MiwgIiM2NmU3YmEyMCIpOwogICAgYy5zYXZlKCk7CiAgICBjLnRyYW5zbGF0ZShnb2FsLngsIGdvYWwueSk7CiAgICBjLnJvdGF0ZShNYXRoLlBJIC8gNCk7CiAgICBjLmZpbGxTdHlsZSA9ICIjNmJlOGJhMTIiOwogICAgYy5zdHJva2VTdHlsZSA9ICIjN2FlZmMzIjsKICAgIGMubGluZVdpZHRoID0gMS41OwogICAgYy5zdHJva2VSZWN0KC0yMyAqIHB1bHNlLCAtMjMgKiBwdWxzZSwgNDYgKiBwdWxzZSwgNDYgKiBwdWxzZSk7CiAgICBjLmZpbGxSZWN0KC0yMywgLTIzLCA0NiwgNDYpOwogICAgYy5zdHJva2VTdHlsZSA9ICIjNzVlN2I4NTUiOwogICAgYy5zdHJva2VSZWN0KC0yOSwgLTI5LCA1OCwgNTgpOwogICAgYy5yZXN0b3JlKCk7CiAgICBjaXJjbGUoYywgZ29hbCwgc3RhZ2UuZ29hbFJhZGl1cyA/PyAyNSwgIiM3OWY0YzMwYiIpOwogICAgY2lyY2xlKGMsIGdvYWwsIDQsICIjYTBmNGQyIik7CiAgICB0ZXh0KGMsICJHT0FMIiwgewogICAgICAgIHg6IGdvYWwueCwKICAgICAgICB5OiBnb2FsLnkgKyA1MwogICAgfSwgIiM4Y2UwYzQiLCAxMCk7CiAgICBmb3IgKGNvbnN0IGggb2Ygc3RhZ2UuaGF6YXJkcyl7CiAgICAgICAgZ2xvdyhjLCBoLCBoLnIgKyAyMiwgIiNmYTZkNmQxNCIpOwogICAgICAgIGMuc2F2ZSgpOwogICAgICAgIGMudHJhbnNsYXRlKGgueCwgaC55KTsKICAgICAgICBjLmJlZ2luUGF0aCgpOwogICAgICAgIGZvcihsZXQgaSA9IDA7IGkgPCAyNDsgaSsrKXsKICAgICAgICAgICAgY29uc3QgYSA9IGkgKiBUQVUgLyAyNCwgciA9IGkgJSAyID8gaC5yICogMC43MSA6IGgucjsKICAgICAgICAgICAgYy5saW5lVG8oTWF0aC5jb3MoYSkgKiByLCBNYXRoLnNpbihhKSAqIHIpOwogICAgICAgIH0KICAgICAgICBjLmNsb3NlUGF0aCgpOwogICAgICAgIGMuZmlsbFN0eWxlID0gIiM5ZDQwNTAiOwogICAgICAgIGMuZmlsbCgpOwogICAgICAgIGMuc3Ryb2tlU3R5bGUgPSAiI2ZmOGI4YyI7CiAgICAgICAgYy5saW5lV2lkdGggPSAxLjU7CiAgICAgICAgYy5zdHJva2UoKTsKICAgICAgICBjaXJjbGUoYywgewogICAgICAgICAgICB4OiAwLAogICAgICAgICAgICB5OiAwCiAgICAgICAgfSwgaC5yICogMC40NSwgIiMyODFmMzQiKTsKICAgICAgICB0ZXh0KGMsICLDlyIsIHsKICAgICAgICAgICAgeDogMCwKICAgICAgICAgICAgeTogNQogICAgICAgIH0sICIjZmZiMGEzIiwgMTcpOwogICAgICAgIGMucmVzdG9yZSgpOwogICAgfQogICAgZ2xvdyhjLCBsaWdodCwgMTI1LCAiI2Y4ZDY4YzIwIik7CiAgICBnbG93KGMsIGxpZ2h0LCA0MCwgIiNmZmRmOWMzOCIpOwogICAgYy5zYXZlKCk7CiAgICBjLnRyYW5zbGF0ZShsaWdodC54LCBsaWdodC55KTsKICAgIGMucm90YXRlKHQgKiAwLjEyKTsKICAgIGMuc3Ryb2tlU3R5bGUgPSAiI2VmZDQ5Mzg4IjsKICAgIGMubGluZVdpZHRoID0gMTsKICAgIGZvcihsZXQgaSA9IDA7IGkgPCA4OyBpKyspewogICAgICAgIGMucm90YXRlKFRBVSAvIDgpOwogICAgICAgIGMuYmVnaW5QYXRoKCk7CiAgICAgICAgYy5tb3ZlVG8oMTgsIDApOwogICAgICAgIGMubGluZVRvKDIzLCAwKTsKICAgICAgICBjLnN0cm9rZSgpOwogICAgfQogICAgYy5yZXN0b3JlKCk7CiAgICBjaXJjbGUoYywgbGlnaHQsIDksICIjZjhkOTljIik7CiAgICBjaXJjbGUoYywgewogICAgICAgIHg6IGxpZ2h0LnggLSAyLAogICAgICAgIHk6IGxpZ2h0LnkgLSAyCiAgICB9LCA0LCAiI2ZmZjZkOSIpOwogICAgYy5zdHJva2VTdHlsZSA9ICIjZDZjY2ZmIjsKICAgIGMubGluZVdpZHRoID0gMS41OwogICAgYy5iZWdpblBhdGgoKTsKICAgIGMuYXJjKHRpcC54LCB0aXAueSwgNiwgMCwgVEFVKTsKICAgIGMuc3Ryb2tlKCk7CiAgICBjaXJjbGUoYywgdGlwLCAyLjUsICIjZWNlNGZmIik7CiAgICBpZiAob3B0LmRlbW8gfHwgc3RhZ2UuaWQgPD0gMykgdGV4dChjLCAi5b2x44Gu5YWIIiwgewogICAgICAgIHg6IHRpcC54LAogICAgICAgIHk6IHRpcC55IC0gMjEKICAgIH0sICIjYzRiYmVkIiwgMTIpOwogICAgY29uc3QgcCA9IHN0YXRlLnBsYXllciwgYm9iID0gc3RhdGUubW92ZWQgJiYgc3RhdGUuc3RhdHVzID09PSAicGxheWluZyIgPyBNYXRoLnNpbih0ICogOSkgKiAxLjYgOiBNYXRoLnNpbih0ICogMikgKiAwLjc7CiAgICBjLnNhdmUoKTsKICAgIGMudHJhbnNsYXRlKHAueCwgcC55KTsKICAgIGNpcmNsZShjLCB7CiAgICAgICAgeDogMCwKICAgICAgICB5OiA4CiAgICB9LCAxNCwgIiMwNzExMWU2NiIpOwogICAgYy5maWxsU3R5bGUgPSAiI2I2YzljMiI7CiAgICBjLmJlZ2luUGF0aCgpOwogICAgYy5lbGxpcHNlKC01LCA5LCAzLjMsIDQgKyBNYXRoLnNpbih0ICogOSkgKiAxLCAwLCAwLCBUQVUpOwogICAgYy5lbGxpcHNlKDUsIDksIDMuMywgNCAtIE1hdGguc2luKHQgKiA5KSAqIDEsIDAsIDAsIFRBVSk7CiAgICBjLmZpbGwoKTsKICAgIGMudHJhbnNsYXRlKDAsIGJvYik7CiAgICBjLnNoYWRvd0NvbG9yID0gIiNmNmVjYzM2NiI7CiAgICBjLnNoYWRvd0JsdXIgPSAxMjsKICAgIGMuZmlsbFN0eWxlID0gIiNmMmVmZGEiOwogICAgYy5iZWdpblBhdGgoKTsKICAgIGMubW92ZVRvKC0xMywgNyk7CiAgICBjLmxpbmVUbygtMTIsIC03KTsKICAgIGMuYmV6aWVyQ3VydmVUbygtMTIsIC0yNCwgMTIsIC0yNCwgMTIsIC03KTsKICAgIGMubGluZVRvKDEzLCA3KTsKICAgIGMucXVhZHJhdGljQ3VydmVUbyg2LCAzLCAwLCA4KTsKICAgIGMucXVhZHJhdGljQ3VydmVUbygtNiwgMywgLTEzLCA3KTsKICAgIGMuZmlsbCgpOwogICAgYy5zaGFkb3dCbHVyID0gMDsKICAgIGMuZmlsbFN0eWxlID0gIiNiZWNiYjUiOwogICAgYy5iZWdpblBhdGgoKTsKICAgIGMubW92ZVRvKDAsIC0xOCk7CiAgICBjLnF1YWRyYXRpY0N1cnZlVG8oLTYsIC0yOSwgNiwgLTI4KTsKICAgIGMucXVhZHJhdGljQ3VydmVUbyg3LCAtMjEsIDAsIC0xOCk7CiAgICBjLmZpbGwoKTsKICAgIGNpcmNsZShjLCB7CiAgICAgICAgeDogLTQuMywKICAgICAgICB5OiAtNwogICAgfSwgMS43LCAiIzI4M2M0MyIpOwogICAgY2lyY2xlKGMsIHsKICAgICAgICB4OiA0LjMsCiAgICAgICAgeTogLTcKICAgIH0sIDEuNywgIiMyODNjNDMiKTsKICAgIGMuc3Ryb2tlU3R5bGUgPSAiIzcxODg4NyI7CiAgICBjLmxpbmVXaWR0aCA9IDE7CiAgICBjLmJlZ2luUGF0aCgpOwogICAgYy5hcmMoMCwgLTQsIDIsIDAsIE1hdGguUEkpOwogICAgYy5zdHJva2UoKTsKICAgIGMuZmlsbFN0eWxlID0gIiNlMmIzNmUiOwogICAgYy5iZWdpblBhdGgoKTsKICAgIGMucm91bmRSZWN0KC0xMSwgMCwgMjIsIDMsIDIpOwogICAgYy5maWxsKCk7CiAgICBjLnJlc3RvcmUoKTsKICAgIGlmIChzdGF0ZS5zdGF0dXMgPT09ICJmYWlsZWQiICYmIHN0YXRlLmhpdCkgewogICAgICAgIGNpcmNsZShjLCBzdGF0ZS5oaXQsIHN0YWdlLmhhemFyZHMuZmluZCgoaCk9PmRpc3QoaCwgc3RhdGUuaGl0KSA8IDEpPy5yID8/IDI1LCAiI2ZmOWI4ZTk5Iik7CiAgICAgICAgYy5zdHJva2VTdHlsZSA9ICIjZmZiMGExIjsKICAgICAgICBjLmxpbmVXaWR0aCA9IDM7CiAgICAgICAgYy5iZWdpblBhdGgoKTsKICAgICAgICBjLmFyYyhzdGF0ZS5oaXQueCwgc3RhdGUuaGl0LnksIDQwICsgTWF0aC5zaW4odCAqIDgpICogMywgMCwgVEFVKTsKICAgICAgICBjLnN0cm9rZSgpOwogICAgfQogICAgaWYgKHN0YXRlLnN0YXR1cyA9PT0gIndvbiIpIHsKICAgICAgICBjb25zdCBhZ2UgPSBvcHQucmVkdWNlZCA/IDEgOiBNYXRoLm1pbigzLCBvcHQuY2xvY2spOwogICAgICAgIGdsb3coYywgZ29hbCwgMTAwLCAiIzlkZmZjZTU1Iik7CiAgICAgICAgZm9yKGxldCBpID0gMDsgaSA8IDI4OyBpKyspewogICAgICAgICAgICBjb25zdCBhID0gaSAqIDIuMzk5LCByID0gMjUgKyAoYWdlICogMzAgKyBpICogMTEpICUgMTAwOwogICAgICAgICAgICBjaXJjbGUoYywgewogICAgICAgICAgICAgICAgeDogZ29hbC54ICsgTWF0aC5jb3MoYSkgKiByLAogICAgICAgICAgICAgICAgeTogZ29hbC55ICsgTWF0aC5zaW4oYSkgKiByCiAgICAgICAgICAgIH0sIGkgJSAzID09PSAwID8gMiA6IDEsICIjYzBmZmRiOTkiKTsKICAgICAgICB9CiAgICAgICAgYy5zdHJva2VTdHlsZSA9ICIjY2FmZmRmODgiOwogICAgICAgIGMubGluZVdpZHRoID0gMjsKICAgICAgICBjLmJlZ2luUGF0aCgpOwogICAgICAgIGMuYXJjKGdvYWwueCwgZ29hbC55LCAzNSArIHQgKiAyMCAlIDQ1LCAwLCBUQVUpOwogICAgICAgIGMuc3Ryb2tlKCk7CiAgICB9CiAgICBjLnJlc3RvcmUoKTsKICAgIGlmICh0aXAueCA8IDI4IHx8IHRpcC54ID4gNjEyIHx8IHRpcC55IDwgMjggfHwgdGlwLnkgPiA1NzIpIHsKICAgICAgICBjb25zdCBlZGdlID0gewogICAgICAgICAgICB4OiBNYXRoLm1heCg0NSwgTWF0aC5taW4oNTk1LCB0aXAueCkpLAogICAgICAgICAgICB5OiBNYXRoLm1heCg0OCwgTWF0aC5taW4oNTUwLCB0aXAueSkpCiAgICAgICAgfTsKICAgICAgICB0ZXh0KGMsICLlvbHjga7lhYgg4oaXIiwgZWRnZSwgIiNjMmI5ZWQiLCAxMSk7CiAgICB9Cn0K","game/storage":"data:text/javascript;base64,ZXhwb3J0IGNvbnN0IFNBVkVfS0VZID0gInNoYWRvdy1maXJzdC1nb2FsOnYxIjsKZXhwb3J0IGZ1bmN0aW9uIGRlZmF1bHRzKCkgewogICAgcmV0dXJuIHsKICAgICAgICB2ZXJzaW9uOiAxLAogICAgICAgIGJlc3RzOiB7fSwKICAgICAgICBzZXR0aW5nczogewogICAgICAgICAgICBiZ206IGZhbHNlLAogICAgICAgICAgICBzZng6IHRydWUsCiAgICAgICAgICAgIHByZWNpc2lvbjogZmFsc2UsCiAgICAgICAgICAgIHJlZHVjZWRNb3Rpb246IGZhbHNlLAogICAgICAgICAgICBzaGFyZVVybDogIiIKICAgICAgICB9CiAgICB9Owp9CmV4cG9ydCBmdW5jdGlvbiBwYXJzZVNhdmUocmF3KSB7CiAgICBjb25zdCBjbGVhbiA9IGRlZmF1bHRzKCk7CiAgICB0cnkgewogICAgICAgIGNvbnN0IGRhdGEgPSBKU09OLnBhcnNlKHJhdyA/PyAibnVsbCIpOwogICAgICAgIGlmICghZGF0YSB8fCBkYXRhLnZlcnNpb24gIT09IDEpIHJldHVybiBjbGVhbjsKICAgICAgICBpZiAoZGF0YS5iZXN0cyAmJiB0eXBlb2YgZGF0YS5iZXN0cyA9PT0gIm9iamVjdCIpIGZvcihsZXQgaSA9IDE7IGkgPD0gMTU7IGkrKyl7CiAgICAgICAgICAgIGNvbnN0IG4gPSBkYXRhLmJlc3RzW2ldOwogICAgICAgICAgICBpZiAodHlwZW9mIG4gPT09ICJudW1iZXIiICYmIE51bWJlci5pc0Zpbml0ZShuKSAmJiBuID4gMCAmJiBuIDwgODY0MDApIGNsZWFuLmJlc3RzW2ldID0gbjsKICAgICAgICB9CiAgICAgICAgaWYgKGRhdGEuc2V0dGluZ3MgJiYgdHlwZW9mIGRhdGEuc2V0dGluZ3MgPT09ICJvYmplY3QiKSB7CiAgICAgICAgICAgIGZvciAoY29uc3QgayBvZiBbCiAgICAgICAgICAgICAgICAiYmdtIiwKICAgICAgICAgICAgICAgICJzZngiLAogICAgICAgICAgICAgICAgInByZWNpc2lvbiIsCiAgICAgICAgICAgICAgICAicmVkdWNlZE1vdGlvbiIKICAgICAgICAgICAgXSlpZiAodHlwZW9mIGRhdGEuc2V0dGluZ3Nba10gPT09ICJib29sZWFuIikgY2xlYW4uc2V0dGluZ3Nba10gPSBkYXRhLnNldHRpbmdzW2tdOwogICAgICAgICAgICBpZiAodHlwZW9mIGRhdGEuc2V0dGluZ3Muc2hhcmVVcmwgPT09ICJzdHJpbmciICYmIGRhdGEuc2V0dGluZ3Muc2hhcmVVcmwubGVuZ3RoIDwgMjA0OCkgdHJ5IHsKICAgICAgICAgICAgICAgIGNvbnN0IHUgPSBuZXcgVVJMKGRhdGEuc2V0dGluZ3Muc2hhcmVVcmwpOwogICAgICAgICAgICAgICAgaWYgKFsKICAgICAgICAgICAgICAgICAgICAiaHR0cHM6IiwKICAgICAgICAgICAgICAgICAgICAiaHR0cDoiCiAgICAgICAgICAgICAgICBdLmluY2x1ZGVzKHUucHJvdG9jb2wpKSBjbGVhbi5zZXR0aW5ncy5zaGFyZVVybCA9IHUuaHJlZjsKICAgICAgICAgICAgfSBjYXRjaCAge30KICAgICAgICB9CiAgICB9IGNhdGNoICB7fQogICAgcmV0dXJuIGNsZWFuOwp9CmV4cG9ydCBmdW5jdGlvbiBsb2FkU2F2ZSgpIHsKICAgIHRyeSB7CiAgICAgICAgcmV0dXJuIHBhcnNlU2F2ZShsb2NhbFN0b3JhZ2UuZ2V0SXRlbShTQVZFX0tFWSkpOwogICAgfSBjYXRjaCAgewogICAgICAgIHJldHVybiBkZWZhdWx0cygpOwogICAgfQp9CmV4cG9ydCBmdW5jdGlvbiB3cml0ZVNhdmUoc2F2ZSkgewogICAgdHJ5IHsKICAgICAgICBsb2NhbFN0b3JhZ2Uuc2V0SXRlbShTQVZFX0tFWSwgSlNPTi5zdHJpbmdpZnkoc2F2ZSkpOwogICAgICAgIHJldHVybiB0cnVlOwogICAgfSBjYXRjaCAgewogICAgICAgIHJldHVybiBmYWxzZTsKICAgIH0KfQpleHBvcnQgZnVuY3Rpb24gdW5sb2NrZWQoc2F2ZSkgewogICAgbGV0IG4gPSAxOwogICAgd2hpbGUobiA8PSAxNSAmJiBzYXZlLmJlc3RzW25dKW4rKzsKICAgIHJldHVybiBNYXRoLm1pbigxNSwgbik7Cn0KZXhwb3J0IGZ1bmN0aW9uIHJlY29yZFdpbihzYXZlLCBpZCwgdGltZSkgewogICAgc2F2ZS5iZXN0c1tpZF0gPSBNYXRoLm1pbihzYXZlLmJlc3RzW2lkXSA/PyBJbmZpbml0eSwgTWF0aC5tYXgoMC4wMDEsIHRpbWUpKTsKfQo=","game/audio":"data:text/javascript;base64,ZXhwb3J0IGNsYXNzIEF1ZGlvRW5naW5lIHsKICAgIGN0eDsKICAgIG1hc3RlcjsKICAgIG11c2ljOwogICAgbm90ZXMgPSBbXTsKICAgIGVuc3VyZSgpIHsKICAgICAgICBpZiAoIXRoaXMuY3R4KSB7CiAgICAgICAgICAgIHRoaXMuY3R4ID0gbmV3IEF1ZGlvQ29udGV4dCgpOwogICAgICAgICAgICB0aGlzLm1hc3RlciA9IHRoaXMuY3R4LmNyZWF0ZUdhaW4oKTsKICAgICAgICAgICAgdGhpcy5tYXN0ZXIuZ2Fpbi52YWx1ZSA9IDAuMTY7CiAgICAgICAgICAgIHRoaXMubWFzdGVyLmNvbm5lY3QodGhpcy5jdHguZGVzdGluYXRpb24pOwogICAgICAgIH0KICAgICAgICB2b2lkIHRoaXMuY3R4LnJlc3VtZSgpLmNhdGNoKCgpPT57fSk7CiAgICAgICAgcmV0dXJuIHRoaXMuY3R4OwogICAgfQogICAgc3RhcnRNdXNpYyhvbikgewogICAgICAgIGlmICghb24pIHsKICAgICAgICAgICAgdGhpcy5zdG9wTXVzaWMoKTsKICAgICAgICAgICAgcmV0dXJuOwogICAgICAgIH0KICAgICAgICBpZiAodGhpcy5ub3Rlcy5sZW5ndGgpIHJldHVybjsKICAgICAgICBjb25zdCBjID0gdGhpcy5lbnN1cmUoKTsKICAgICAgICB0aGlzLm11c2ljID0gYy5jcmVhdGVHYWluKCk7CiAgICAgICAgdGhpcy5tdXNpYy5nYWluLnNldFZhbHVlQXRUaW1lKDAsIGMuY3VycmVudFRpbWUpOwogICAgICAgIHRoaXMubXVzaWMuZ2Fpbi5saW5lYXJSYW1wVG9WYWx1ZUF0VGltZSgwLjEyLCBjLmN1cnJlbnRUaW1lICsgMik7CiAgICAgICAgdGhpcy5tdXNpYy5jb25uZWN0KHRoaXMubWFzdGVyKTsKICAgICAgICBmb3IgKGNvbnN0IGZyZXF1ZW5jeSBvZiBbCiAgICAgICAgICAgIDEzMC44MSwKICAgICAgICAgICAgMTk2LAogICAgICAgICAgICAyNjEuNjMsCiAgICAgICAgICAgIDMyOS42MwogICAgICAgIF0pewogICAgICAgICAgICBjb25zdCBvID0gYy5jcmVhdGVPc2NpbGxhdG9yKCk7CiAgICAgICAgICAgIG8udHlwZSA9ICJzaW5lIjsKICAgICAgICAgICAgby5mcmVxdWVuY3kudmFsdWUgPSBmcmVxdWVuY3k7CiAgICAgICAgICAgIG8uY29ubmVjdCh0aGlzLm11c2ljKTsKICAgICAgICAgICAgby5zdGFydCgpOwogICAgICAgICAgICB0aGlzLm5vdGVzLnB1c2gobyk7CiAgICAgICAgfQogICAgfQogICAgc3RvcE11c2ljKCkgewogICAgICAgIHRoaXMubm90ZXMuZm9yRWFjaCgobyk9PnsKICAgICAgICAgICAgby5zdG9wKCk7CiAgICAgICAgICAgIG8uZGlzY29ubmVjdCgpOwogICAgICAgIH0pOwogICAgICAgIHRoaXMubm90ZXMgPSBbXTsKICAgICAgICB0aGlzLm11c2ljPy5kaXNjb25uZWN0KCk7CiAgICAgICAgdGhpcy5tdXNpYyA9IHVuZGVmaW5lZDsKICAgIH0KICAgIGVmZmVjdChraW5kLCBlbmFibGVkKSB7CiAgICAgICAgaWYgKCFlbmFibGVkKSByZXR1cm47CiAgICAgICAgY29uc3QgYyA9IHRoaXMuZW5zdXJlKCksIG5vdGVzID0ga2luZCA9PT0gIndpbiIgPyBbCiAgICAgICAgICAgIDUyMy4yNSwKICAgICAgICAgICAgNjU5LjI1LAogICAgICAgICAgICA3ODMuOTksCiAgICAgICAgICAgIDEwNDYuNQogICAgICAgIF0gOiBraW5kID09PSAiZmFpbCIgPyBbCiAgICAgICAgICAgIDE5NiwKICAgICAgICAgICAgMTQ2LjgzCiAgICAgICAgXSA6IFsKICAgICAgICAgICAgNDQwCiAgICAgICAgXTsKICAgICAgICBub3Rlcy5mb3JFYWNoKChmcmVxdWVuY3ksIGkpPT57CiAgICAgICAgICAgIGNvbnN0IG8gPSBjLmNyZWF0ZU9zY2lsbGF0b3IoKSwgZyA9IGMuY3JlYXRlR2FpbigpLCB0ID0gYy5jdXJyZW50VGltZSArIGkgKiAwLjE7CiAgICAgICAgICAgIG8udHlwZSA9ICJzaW5lIjsKICAgICAgICAgICAgby5mcmVxdWVuY3kudmFsdWUgPSBmcmVxdWVuY3k7CiAgICAgICAgICAgIGcuZ2Fpbi5zZXRWYWx1ZUF0VGltZSgwLCB0KTsKICAgICAgICAgICAgZy5nYWluLmxpbmVhclJhbXBUb1ZhbHVlQXRUaW1lKDAuMzUsIHQgKyAwLjAxNSk7CiAgICAgICAgICAgIGcuZ2Fpbi5leHBvbmVudGlhbFJhbXBUb1ZhbHVlQXRUaW1lKDAuMDAxLCB0ICsgMC42NSk7CiAgICAgICAgICAgIG8uY29ubmVjdChnKTsKICAgICAgICAgICAgZy5jb25uZWN0KHRoaXMubWFzdGVyKTsKICAgICAgICAgICAgby5zdGFydCh0KTsKICAgICAgICAgICAgby5zdG9wKHQgKyAwLjcpOwogICAgICAgIH0pOwogICAgfQogICAgc3VzcGVuZCgpIHsKICAgICAgICB2b2lkIHRoaXMuY3R4Py5zdXNwZW5kKCk7CiAgICB9CiAgICByZXN1bWUoKSB7CiAgICAgICAgdm9pZCB0aGlzLmN0eD8ucmVzdW1lKCkuY2F0Y2goKCk9Pnt9KTsKICAgIH0KfQo="}}</script>
+<script type="module">
+import { stages } from "game/stages";
+import { createState, advance, FIXED_DT } from "game/engine";
+import { draw } from "game/render";
+import { loadSave, writeSave, recordWin, unlocked } from "game/storage";
+import { AudioEngine } from "game/audio";
+const app = document.querySelector("#app");
+const audio = new AudioEngine();
+let save = loadSave(), page = "home", stage = stages[0], state = createState(stage);
+let canvas = null, ctx = null, paused = false, last = 0, acc = 0, clock = 0, celebration = 0;
+let keys = new Set(), stick = {
+    x: 0,
+    y: 0
+}, pointer = null, observer, previousBest;
+const format = (n)=>`${n.toFixed(2)}s`;
+const icon = (name)=>{
+    const paths = {
+        arrow: '<path d="M5 12h14m-6-6 6 6-6 6"/>',
+        back: '<path d="m14 6-6 6 6 6"/>',
+        retry: '<path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/>',
+        pause: '<path d="M8 5v14M16 5v14"/>',
+        settings: '<path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="15" cy="17" r="3"/>',
+        grid: '<rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/>',
+        sound: '<path d="m11 5-6 4H2v6h3l6 4ZM16 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/>',
+        share: '<path d="M12 16V3m-5 5 5-5 5 5M5 13v7h14v-7"/>',
+        check: '<path d="m5 12 4 4L19 6"/>',
+        lock: '<rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>',
+        sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1 1m12 12 1 1M5 19l1-1M18 6l1-1"/>'
+    };
+    return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] ?? paths.arrow}</svg>`;
+};
+const button = (action, label, ic, cls = "")=>`<button type="button" class="${cls}" data-action="${action}">${ic ? icon(ic) : ""}<span>${label}</span></button>`;
+const brand = `<span class="brand-mark">${icon("sun")}</span><span>影だけ先にゴール<small>SHADOW FIRST</small></span>`;
+const legend = `<div class="legend"><span><i class="light-dot"></i>光</span><span><i class="traveler-dot"></i>きみ</span><span><i class="shadow-dot"></i>影の先</span><span><i class="goal-dot"></i>ゴール</span></div>`;
+app.innerHTML = '<main id="screen"></main><dialog id="modal" aria-labelledby="modal-title"></dialog><div id="toast" role="status"></div>';
+const screen = document.querySelector("#screen"), modal = document.querySelector("#modal"), toast = document.querySelector("#toast");
+let toastTimer;
+function notify(s) {
+    toast.textContent = s;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(()=>toast.classList.remove("show"), 3500);
+}
+function persist() {
+    if (!writeSave(save)) notify("このブラウザでは記録を保存できません。プレイは続けられます。");
+}
+function clearInput() {
+    keys.clear();
+    stick = {
+        x: 0,
+        y: 0
+    };
+    pointer = null;
+    document.querySelector(".stick-knob")?.style.setProperty("transform", "translate(-50%, -50%)");
+}
+function closeModal() {
+    if (modal.open) modal.close();
+    paused = false;
+    clearInput();
+    last = performance.now();
+    acc = 0;
+}
+function showModal(html) {
+    clearInput();
+    paused = true;
+    modal.innerHTML = html;
+    if (!modal.open) modal.showModal();
+}
+function setupCanvas() {
+    observer?.disconnect();
+    canvas = document.querySelector("canvas");
+    ctx = canvas?.getContext("2d") ?? null;
+    if (!canvas || !ctx) return;
+    const resize = ()=>{
+        if (!canvas || !ctx) return;
+        const ratio = Math.min(window.devicePixelRatio || 1, 2), w = canvas.getBoundingClientRect().width;
+        canvas.width = Math.round(w * ratio);
+        canvas.height = Math.round(w * 600 / 640 * ratio);
+        ctx.setTransform(canvas.width / 640, 0, 0, canvas.height / 600, 0, 0);
+    };
+    observer = new ResizeObserver(resize);
+    observer.observe(canvas);
+    resize();
+}
+function header(back = false) {
+    return `<header class="site-header"><a class="brand" href="#" data-action="home" aria-label="タイトルへ">${brand}</a><nav>${back ? button("home", "タイトル", "back", "quiet") : button("how", "遊び方", undefined, "quiet")}${button("settings", "設定", "settings", "icon-button")}</nav></header>`;
+}
+function home() {
+    closeModal();
+    page = "home";
+    audio.startMusic(save.settings.bgm);
+    screen.innerHTML = `<div class="shell home-shell">${header()}<div class="hero"><section class="hero-copy"><div class="eyebrow"><span></span> A LITTLE LIGHT. A DIFFERENT WAY.</div><p class="tagline">ゴールするのは、<br>あなたじゃない。</p><h1>影だけ先に<br><span>ゴール</span><i>。</i></h1><p class="intro">光を読んで、影をのばして。<br>小さなきみと、ひと足先の影のパズル。</p><div class="hero-actions">${button("start", Object.keys(save.bests).length ? "つづきから遊ぶ" : "影の旅をはじめる", "arrow", "primary")}${button("stages", "ステージを選ぶ", "grid", "secondary")}</div><div class="hero-meta"><span>15の小さな謎</span><i></i><span>スマホ・PC対応</span><i></i><span>無料でプレイ</span></div></section><section class="hero-art" aria-label="光と影の庭園"><div class="art-caption"><span class="live-dot"></span> THE GARDEN OF SHADOWS <span>01 — 15</span></div><canvas width="640" height="600" role="img" aria-label="光源から離れると影が伸びる、小さな旅人のアニメーション"></canvas><div class="art-bottom">${legend}<span class="art-note">ひかりの向こうに、答えがある。</span></div></section></div><section class="home-foot"><span class="chapter-index">HOW TO PLAY</span><div class="mini-step"><b>01</b><span>きみを動かす<small>タッチ / WASD / 矢印キー</small></span></div><span class="flow-line">→</span><div class="mini-step"><b>02</b><span>影の先を届ける<small>緑のひし形がゴール</small></span></div><span class="footer-note">急がなくていい。<br>ひらめいたら、動いてみよう。</span></section><footer class="site-footer"><span>© 2026 SHADOW FIRST</span><span>小さな光から、冒険ははじまる。</span></footer></div>`;
+    setupCanvas();
+}
+function selectStages() {
+    closeModal();
+    page = "stages";
+    const open = unlocked(save);
+    screen.innerHTML = `<div class="shell">${header(true)}<section class="selection"><div class="eyebrow">CHOOSE YOUR CHAPTER</div><div class="section-title"><h1>15の、影の物語。</h1><span>${Object.keys(save.bests).length} / 15 CLEAR</span></div><p class="muted">ひとつ解くたび、次の庭へ。クリアしたステージは何度でも。</p>${[
+        0,
+        1,
+        2
+    ].map((ch)=>`<section class="chapter"><h2><em>0${ch + 1}</em>${[
+            "影との出会い",
+            "危うい道のり",
+            "光を読む"
+        ][ch]}<span>${[
+            "BASICS",
+            "OBSTACLES",
+            "LIGHT & TIME"
+        ][ch]}</span></h2><div class="stage-grid">${stages.slice(ch * 5, ch * 5 + 5).map((s)=>`<button class="stage-card ${save.bests[s.id] ? "completed" : ""}" data-stage="${s.id}" ${s.id > open ? "disabled" : ""}><span class="stage-card-top"><b>${String(s.id).padStart(2, "0")}</b>${icon(save.bests[s.id] ? "check" : s.id > open ? "lock" : "arrow")}</span><span>${s.title}</span><small>${save.bests[s.id] ? `BEST ${format(save.bests[s.id])}` : s.id > open ? "まだ見ぬ庭" : "挑戦する"}</small></button>`).join("")}</div></section>`).join("")}</section><footer class="site-footer"><span>YOUR PROGRESS IS SAVED ON THIS DEVICE</span><span>記録はこのブラウザに保存されます</span></footer></div>`;
+}
+function start(id) {
+    if (id > unlocked(save)) return;
+    closeModal();
+    page = "play";
+    stage = stages[id - 1];
+    state = createState(stage);
+    previousBest = save.bests[id];
+    celebration = 0;
+    acc = 0;
+    clock = 0;
+    audio.startMusic(save.settings.bgm);
+    screen.innerHTML = `<div class="play-shell"><header class="play-header">${button("stages", "ステージ", "grid", "icon-button")}<a class="play-brand" href="#" data-action="home">影だけ先にゴール</a>${button("settings", "設定", "settings", "icon-button")}</header><section class="play-content"><div class="stage-heading"><div><div class="eyebrow">${stage.chapter}</div><h1><span>${String(id).padStart(2, "0")}</span>${stage.title}</h1></div><div class="timer"><small>TIME</small><output id="timer">0.00<span>s</span></output></div></div><div class="board-wrap"><canvas width="640" height="600" role="img" aria-label="ステージ${id}。光、旅人、紫の影、緑のゴール。石の壁は旅人のみを遮り、赤いとげは影に危険。"></canvas><div class="board-hint" id="tutorial" aria-live="polite">${id === 1 ? "動かしてみよう" : stage.hint}</div></div><div class="play-tools">${legend}<div>${button("hint", "ヒント", undefined, "text-button")}${button("retry", "やり直す", "retry", "icon-button")}${button("pause", "一時停止", "pause", "icon-button")}</div></div><div class="control-deck"><div class="keyboard-help"><div class="key-row"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>/</span><kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd></div><p>影の先を、緑のゴールへ。<small>Shift でゆっくり · R でやり直し</small></p></div><div class="touch-help"><strong>影の先を、ゴールへ。</strong><span>パッドを倒して移動<br>小さく倒すと、ゆっくり</span></div><div class="joystick" role="group" aria-label="タッチ移動パッド"><span class="stick-cross">＋</span><span class="stick-knob"></span><span class="stick-label">MOVE</span></div></div></section></div>`;
+    setupCanvas();
+    attachStick();
+}
+function attachStick() {
+    const pad = document.querySelector(".joystick");
+    const update = (e)=>{
+        const r = pad.getBoundingClientRect(), radius = r.width * 0.34, dx = e.clientX - r.x - r.width / 2, dy = e.clientY - r.y - r.height / 2, n = Math.hypot(dx, dy), factor = Math.min(n, radius) / Math.max(n, 1);
+        const raw = Math.min(n / radius, 1), m = raw < 0.09 ? 0 : (raw - 0.09) / 0.91;
+        stick = {
+            x: n ? dx / n * m : 0,
+            y: n ? dy / n * m : 0
+        };
+        pad.querySelector(".stick-knob").style.transform = `translate(calc(-50% + ${dx * factor}px), calc(-50% + ${dy * factor}px))`;
+    };
+    pad.addEventListener("pointerdown", (e)=>{
+        if (pointer !== null || paused || state.status !== "playing") return;
+        pointer = e.pointerId;
+        pad.setPointerCapture(pointer);
+        e.preventDefault();
+        update(e);
+    });
+    pad.addEventListener("pointermove", (e)=>{
+        if (pointer === e.pointerId) {
+            e.preventDefault();
+            update(e);
+        }
+    });
+    for (const event of [
+        "pointerup",
+        "pointercancel",
+        "lostpointercapture"
+    ])pad.addEventListener(event, ()=>clearInput());
+}
+function onWin() {
+    previousBest = save.bests[stage.id];
+    recordWin(save, stage.id, state.time);
+    persist();
+    audio.effect("win", save.settings.sfx);
+    clearInput();
+    celebration = 0;
+    setTimeout(()=>{
+        if (page === "play" && state.status === "won" && !modal.open) result();
+    }, save.settings.reducedMotion ? 50 : 650);
+}
+function result() {
+    const final = stage.id === 15, isRecord = previousBest === undefined || state.time < previousBest;
+    showModal(`<div class="result-orbit">✧</div><div class="eyebrow">${final ? "ALL GARDENS COMPLETE" : "SHADOW DELIVERED"}</div><h2 id="modal-title">${final ? "最後の影が、届いた。" : "影が、ひと足先に。"}</h2><p class="muted">${stage.id === 1 ? "ゴールするのは、あなたじゃない。" : final ? "15の庭を歩いたきみへ。光は、いつもそこに。" : `STAGE ${String(stage.id).padStart(2, "0")} · ${stage.title}`}</p><div class="result-time">${format(state.time)}<span class="record-badge">${isRecord ? "NEW BEST" : "CLEAR TIME"}</span></div><div class="best-time">自己ベスト <strong>${format(save.bests[stage.id])}</strong></div><div class="modal-actions">${button(final ? "stages" : "next", final ? "15の庭を振り返る" : "次のステージへ", "arrow", "primary")}${button("retry", "もう一度", "retry", "secondary")}${button("share", "結果をシェア", "share", "quiet")}</div>${final ? '<p class="fine">また違う道を探しに、いつでも。</p>' : ""}`);
+}
+function fail() {
+    audio.effect("fail", save.settings.sfx);
+    showModal(`<div class="failure-symbol">×</div><div class="eyebrow">ONE MORE TRY</div><h2 id="modal-title">影が当たった！</h2><p class="muted">赤く光ったとげに、影が触れたよ。<br>光に近づくと、影は短くなる。</p><div class="modal-actions">${button("retry", "もう一度ためす", "retry", "primary")}${button("stages", "ステージを選ぶ", "grid", "quiet")}</div>`);
+}
+function pause() {
+    if (page !== "play" || state.status !== "playing") return;
+    showModal(`<div class="eyebrow">TAKE A LITTLE BREATH</div><h2 id="modal-title">ひと休み。</h2><p class="muted">光も影も、待っているよ。</p><div class="modal-actions">${button("resume", "つづける", "arrow", "primary")}${button("retry", "はじめから", "retry", "secondary")}${button("stages", "ステージを選ぶ", "grid", "quiet")}${button("settings", "設定", "settings", "quiet")}</div>`);
+}
+function settings() {
+    showModal(`<div class="eyebrow">MAKE YOURSELF COMFORTABLE</div><h2 id="modal-title">設定</h2><div class="settings-list">${[
+        [
+            "bgm",
+            "音楽",
+            "小さな光をイメージした、自作の環境音"
+        ],
+        [
+            "sfx",
+            "効果音",
+            "成功と失敗を、音でもお知らせ"
+        ],
+        [
+            "precision",
+            "ゆっくり移動",
+            "移動速度を45%に。細かく動かしたいときに"
+        ],
+        [
+            "reducedMotion",
+            "演出を控えめに",
+            "光の揺らぎや背景の動きを抑えます"
+        ]
+    ].map(([k, label, desc])=>`<label class="setting-row"><span>${label}<small>${desc}</small></span><input type="checkbox" data-setting="${k}" ${save.settings[k] ? "checked" : ""}><span class="toggle" aria-hidden="true"></span></label>`).join("")}</div><label class="url-setting">共有用の公開URL（任意）<input id="share-url" type="url" placeholder="https://example.com/" value="${save.settings.shareUrl.replaceAll("&", "&amp;").replaceAll('"', "&quot;")}"><small>未設定なら、現在のページのURLを使います。</small></label><p class="fine">記録はこの端末のブラウザに保存されます。</p>${button("close-settings", "戻る", "back", "primary")}`);
+}
+function how() {
+    showModal(`<div class="eyebrow">A DIFFERENT WAY TO THE GOAL</div><h2 id="modal-title">旅するのは、きみと影。</h2><div class="how-list"><p><b>01</b><span>きみを動かす<small>スマホはパッド、PCは WASD / 矢印キー。</small></span></p><p><b>02</b><span>影の先を、緑のひし形へ<small>光から離れると、影が伸びる。</small></span></p><p><b>03</b><span>赤いとげに気をつけて<small>影の途中が触れても失敗。石壁は影なら通れる。</small></span></p></div>${button("close", "わかった", "check", "primary")}`);
+}
+async function share() {
+    const url = save.settings.shareUrl || (location.protocol.startsWith("http") ? location.href.split("#")[0] : "");
+    const text = `「影だけ先にゴール」ステージ${stage.id}を ${format(state.time)} でクリア！\nゴールするのは、あなたじゃない。`;
+    try {
+        if (navigator.share) {
+            await navigator.share({
+                title: "影だけ先にゴール",
+                text,
+                ...url ? {
+                    url
+                } : {}
+            });
+        } else {
+            await navigator.clipboard.writeText(text + (url ? "\n" + url : ""));
+            notify("結果をコピーしました");
+        }
+    } catch (e) {
+        if (e instanceof DOMException && e.name === "AbortError") return;
+        showModal(`<h2 id="modal-title">結果をコピー</h2><p class="muted">下のテキストを選択してコピーできます。</p><textarea class="share-text" readonly></textarea>${button("close", "戻る", undefined, "primary")}`);
+        const area = modal.querySelector("textarea");
+        area.value = text + (url ? "\n" + url : "");
+        area.select();
+    }
+}
+function action(name) {
+    switch(name){
+        case "home":
+            home();
+            break;
+        case "start":
+            start(unlocked(save));
+            break;
+        case "stages":
+            selectStages();
+            break;
+        case "retry":
+            start(stage.id);
+            break;
+        case "next":
+            start(Math.min(15, stage.id + 1));
+            break;
+        case "settings":
+            settings();
+            break;
+        case "how":
+            how();
+            break;
+        case "pause":
+            pause();
+            break;
+        case "resume":
+        case "close":
+            closeModal();
+            break;
+        case "close-settings":
+            {
+                const raw = modal.querySelector("#share-url").value.trim();
+                if (raw) {
+                    try {
+                        const u = new URL(raw);
+                        if (![
+                            "https:",
+                            "http:"
+                        ].includes(u.protocol)) throw new Error();
+                        save.settings.shareUrl = u.href;
+                    } catch  {
+                        notify("http または https のURLを入力してください");
+                        return;
+                    }
+                } else save.settings.shareUrl = "";
+                persist();
+                closeModal();
+                if (page === "play" && state.status === "won") result();
+                else if (page === "play" && state.status === "failed") fail();
+                break;
+            }
+        case "hint":
+            showModal(`<div class="eyebrow">A SMALL CLUE</div><h2 id="modal-title">${stage.title}</h2><p class="hint-text">${stage.hint}</p><p class="fine">光とゴールの間に立つと、影が届く場所が見つかる。</p>${button("resume", "試してみる", "arrow", "primary")}`);
+            break;
+        case "share":
+            void share();
+            break;
+    }
+}
+app.addEventListener("click", (e)=>{
+    const el = e.target.closest("[data-action],[data-stage]");
+    if (!el) return;
+    e.preventDefault();
+    if (el.dataset.action) action(el.dataset.action);
+    else if (el.dataset.stage) start(Number(el.dataset.stage));
+});
+modal.addEventListener("change", (e)=>{
+    const el = e.target, k = el.dataset.setting;
+    if (k) {
+        save.settings[k] = el.checked;
+        persist();
+        audio.startMusic(save.settings.bgm);
+    }
+});
+modal.addEventListener("cancel", (e)=>{
+    e.preventDefault();
+    if (state.status === "failed" && page === "play") start(stage.id);
+    else if (state.status === "won" && page === "play") selectStages();
+    else closeModal();
+});
+const movement = new Set([
+    "w",
+    "a",
+    "s",
+    "d",
+    "arrowup",
+    "arrowleft",
+    "arrowdown",
+    "arrowright",
+    "shift"
+]);
+window.addEventListener("keydown", (e)=>{
+    if (e.target.matches("input,textarea")) return;
+    const k = e.key.toLowerCase();
+    if (page === "play" && !modal.open) {
+        if (movement.has(k)) {
+            e.preventDefault();
+            keys.add(k);
+        }
+        if (k === "r" && !e.repeat) start(stage.id);
+        if (k === "escape") {
+            e.preventDefault();
+            pause();
+        }
+    }
+});
+window.addEventListener("keyup", (e)=>keys.delete(e.key.toLowerCase()));
+window.addEventListener("focus", ()=>{
+    if (!document.hidden) audio.resume();
+});
+window.addEventListener("blur", ()=>{
+    clearInput();
+    if (page === "play" && !modal.open) pause();
+    audio.suspend();
+});
+document.addEventListener("visibilitychange", ()=>{
+    clearInput();
+    if (document.hidden) {
+        if (page === "play") pause();
+        audio.suspend();
+    } else {
+        audio.resume();
+        last = performance.now();
+        acc = 0;
+    }
+});
+function frame(now) {
+    const dt = Math.min(0.05, Math.max(0, (now - last) / 1000));
+    last = now;
+    clock += dt;
+    if (page === "play" && !paused && state.status === "playing") {
+        acc += dt;
+        const input = {
+            x: (keys.has("d") || keys.has("arrowright") ? 1 : 0) - (keys.has("a") || keys.has("arrowleft") ? 1 : 0) + stick.x,
+            y: (keys.has("s") || keys.has("arrowdown") ? 1 : 0) - (keys.has("w") || keys.has("arrowup") ? 1 : 0) + stick.y
+        };
+        while(acc >= FIXED_DT && state.status === "playing"){
+            state = advance(stage, state, input, FIXED_DT, save.settings.precision || keys.has("shift"));
+            acc -= FIXED_DT;
+        }
+        const timer = document.querySelector("#timer");
+        if (timer) timer.innerHTML = `${state.time.toFixed(2)}<span>s</span>`;
+        if (stage.id === 1 && state.moved) document.querySelector("#tutorial").textContent = "影の先をゴールへ！";
+        if (state.status === "won") onWin();
+        else if (state.status === "failed") fail();
+    }
+    if (ctx) {
+        if (page === "home") {
+            const demo = {
+                ...createState(stages[0]),
+                player: {
+                    x: 300 + Math.sin(clock * 0.4) * 28,
+                    y: 300 + Math.cos(clock * 0.3) * 30
+                },
+                time: clock,
+                moved: true
+            };
+            draw(ctx, stages[0], demo, {
+                reduced: save.settings.reducedMotion,
+                demo: true,
+                clock
+            });
+        } else if (page === "play") {
+            if (state.status === "won") celebration += dt;
+            draw(ctx, stage, state, {
+                reduced: save.settings.reducedMotion,
+                clock: state.status === "won" ? celebration : clock
+            });
+        }
+    }
+    requestAnimationFrame(frame);
+}
+home();
+requestAnimationFrame((t)=>{
+    last = t;
+    requestAnimationFrame(frame);
+});
+if (false) Object.assign(window, {
+    __shadow: {
+        snapshot: ()=>({
+                stage: stage.id,
+                state: structuredClone(state),
+                page,
+                save: structuredClone(save),
+                paused
+            }),
+        load: (id)=>{
+            save.bests = Object.fromEntries(Array.from({
+                length: id - 1
+            }, (_, i)=>[
+                    i + 1,
+                    99
+                ]));
+            start(id);
+        },
+        step: (input, dt)=>{
+            if (paused) throw new Error("paused");
+            state = advance(stage, state, input, dt);
+            if (state.status === "won") onWin();
+            if (state.status === "failed") fail();
+        },
+        finish: ()=>result()
+    }
+});
+
+</script>
+  </body>
+</html>
