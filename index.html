@@ -1444,6 +1444,12 @@ dialog .fine {
   background: #10242b;
   border-bottom: 1px solid #b2c7a91a;
 }
+.game-shell {
+  height: 100svh;
+  display: grid;
+  grid-template-rows: auto auto minmax(120px, 1fr) auto auto auto;
+}
+.game-shell .world { height: auto; min-height: 0; max-height: none; }
 .light-indicator {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -1656,7 +1662,7 @@ function updateLight() {
         const lamp = lightIdentity(state.activeLight);
         control.style.setProperty("--lamp", lamp.color);
         control.innerHTML = `${lamp.symbol}<small>照明 ${lightLabel(state.activeLight)} / E</small>`;
-        control.setAttribute("aria-label", `照明${lightLabel(state.activeLight)}が点灯中。次の照明に切り替える`);
+        control.title = `照明${lightLabel(state.activeLight)}が点灯中。次の照明に切り替える`;
     }
 }
 function settle(next) {
